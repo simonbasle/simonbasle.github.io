@@ -45,11 +45,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="https://simonbasle.github.io/2017/10/new-gadget-logitech-spotlight/">
+  <link rel="canonical" href="https://simonbasle.github.io/2017/10/git-identities-and-ssh/">
 
   
 
-  <title>New Gadget: Logitech Spotlight | Simon&#39;s Blog</title>
+  <title>Git Identities and Ssh | Simon&#39;s Blog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -135,24 +135,29 @@
 <article class="article" itemscope itemtype="http://schema.org/Article">
 
   
+<div class="article-header">
+  <img src="/img/headers/git-identities-and-ssh.png" class="article-banner" itemprop="image">
+  <span class="article-header-caption"><a href="#" title="Copyright Derek Hass, intended as fair use">ℹ️</a></span>
+</div>
+
 
 
   <div class="article-container">
-    <h1 itemprop="name">New Gadget: Logitech Spotlight</h1>
+    <h1 itemprop="name">Git Identities and Ssh</h1>
     
 
 <div class="article-metadata">
 
   <span class="article-date">
     
-    <time datetime="2017-10-06 17:31:42 &#43;0200 CEST" itemprop="datePublished">
-      2017-10-06
+    <time datetime="2017-10-09 11:22:39 &#43;0200 CEST" itemprop="datePublished">
+      2017-10-09
     </time>
   </span>
 
   
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -162,7 +167,7 @@
   <span class="article-categories">
     <i class="fa fa-folder"></i>
     
-    <a href="/categories/gadgets">Gadgets</a
+    <a href="/categories/tools">Tools</a
     >
     
   </span>
@@ -175,10 +180,16 @@
   <span class="article-tags">
     <i class="fa fa-tags"></i>
     
-    <a href="/tags/speaking">Speaking</a
+    <a href="/tags/git">git</a
     >, 
     
-    <a href="/tags/hardware">Hardware</a
+    <a href="/tags/identities">identities</a
+    >, 
+    
+    <a href="/tags/ssh">ssh</a
+    >, 
+    
+    <a href="/tags/config">config</a
     >
     
   </span>
@@ -191,35 +202,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=New%20Gadget%3a%20Logitech%20Spotlight&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fnew-gadget-logitech-spotlight%2f"
+         href="https://twitter.com/intent/tweet?text=Git%20Identities%20and%20Ssh&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fgit-identities-and-ssh%2f"
          target="_blank">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fnew-gadget-logitech-spotlight%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fgit-identities-and-ssh%2f"
          target="_blank">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fnew-gadget-logitech-spotlight%2f&amp;title=New%20Gadget%3a%20Logitech%20Spotlight"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fgit-identities-and-ssh%2f&amp;title=Git%20Identities%20and%20Ssh"
          target="_blank">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fnew-gadget-logitech-spotlight%2f&amp;title=New%20Gadget%3a%20Logitech%20Spotlight"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fgit-identities-and-ssh%2f&amp;title=Git%20Identities%20and%20Ssh"
          target="_blank">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=New%20Gadget%3a%20Logitech%20Spotlight&amp;body=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fnew-gadget-logitech-spotlight%2f">
+         href="mailto:?subject=Git%20Identities%20and%20Ssh&amp;body=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fgit-identities-and-ssh%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -232,74 +243,109 @@
 </div>
 
     <div class="article-style" itemprop="articleBody">
-      <p>As you might know, I sometimes speak about Programming at
-<a href="/#talks_upcoming">conferences</a>&hellip; One handy tool for speakers is to have a
-<strong>remote</strong>, which allows you to advance your slides without having to constantly
-hug your computer, looming over that space bar and staying at the edge of the
-stage 😅</p>
+      <p>If you sometimes work on both personal and professional projects that are hosted
+on GitHub, chances are that you&rsquo;d like to separate identities. Maybe you have
+several accounts, maybe it&rsquo;s just a matter of making the commits use different
+emails.</p>
+
+<p>In this post, we&rsquo;ll see how to manage such separate identities, at the SSH level
+and the Git level.</p>
 
 <p></p>
 
-<p>After all, you&rsquo;ve <em>got</em> to make use of the whole space, move back and forth&hellip;
-It keeps the presentation dynamic 👍</p>
+<h1 id="configuring-per-repository-author-information-in-git">Configuring Per-Repository Author Information in Git</h1>
 
-<div class="alert alert-note">
-  <p>By the way, if you ever see me at a conference, don&rsquo;t hesitate: please come and
-say Hi!</p>
+<div class="alert alert-danger">
+  <p>This requires Git 2.13 or above</p>
 
 </div>
 
 
-<p>So for a few years now, I&rsquo;ve had a solid R800 by Logitech. But recently, I
-discovered they released an even higher end remote that goes beyond the
-traditional 2-buttons-to-advance-slides set of features: <strong>Enter the Logitech
-Spotlight</strong> 🔦</p>
+<p>The idea is to organize cloned repositories in a hierarchy of folders, which
+will automatically get the correct configuration thanks to the <a href="https://git-scm.com/docs/git-config#_conditional_includes" target="_blank">Conditional
+Includes</a> feature
+from <code>Git 2.13</code>.</p>
 
-<p>The remote packaging and build feel high end, even the installer looks pretty
-modern:
-<img src="/img/logitech-spotlight-install.png" alt="" /></p>
+<p>Thanks to that feature, one can alter the configuration depending to a pattern,
+e.g. on the absolute path of a given repo. That can be put to use to alter the
+authorship information for instance.</p>
 
-<p>This remote only has 3 buttons, 2 of which are pretty classic: the largest one
-to move forward and a small one underneath to move backward.</p>
+<p>Define such a pattern inside the <code>.gitconfig</code> file in your home folder:</p>
 
-<p>But its secret sauce is the <strong>third button</strong> at the top of the remote (let&rsquo;s
-call it the &ldquo;spotlight button&rdquo; 👻).</p>
+<pre><code class="language-ini">[user]
+    name = Bruce Wayne
+    email = &lt;bruce.wayne@wayneindustries.com&gt;
 
-<p>It is a sort of software-based laser pointer! With the remote&rsquo;s driver installed,
-clicking the button dims most of the screen except a round area around your
-pointer. And the best part is, the remote has an accelerometer, so you can
-<strong>move the pointer</strong> (even if you&rsquo;re not facing the screen).</p>
+[includeIf &quot;gitdir:~/BatCave/&quot;]
+    path = .gitconfig-secret
+</code></pre>
 
-<p>This really feels like having a torchlight you can use to show specific parts of
-your slides. And since it&rsquo;s all in the software, it displays on the projector
-and it will also show up in videos when your screen gets captured (or when
-sharing your screen during webinars for instance).</p>
+<p>Then define the overriding configuration of the <code>.gitconfig-secret</code>:</p>
 
+<pre><code class="language-ini">[user]
+    name = Batman
+    email = &lt;caped.crusader@justiceleague.com&gt;
+</code></pre>
 
-<figure >
-    
-        <img src="/img/logitech-spotlight-in-action.png" />
-    
-    
-    <figcaption>
-        <h4>Yes, even screenshots!</h4>
-        
-    </figcaption>
-    
-</figure>
+<p>Now, every time you clone a Git repository under the <code>BatCave</code> base folder, Git
+will use your secret batman identity for your commits 😎 👍</p>
+
+<div class="alert alert-note">
+  <p>This local configuration is visible with a <code>git config --list</code> <strong>IF</strong> you&rsquo;re
+actually inside a git-enabled folder.</p>
+
+</div>
 
 
-<p>Pretty neat 😄</p>
+<h1 id="configuring-different-github-accounts-via-ssh-host-configuration">Configuring Different GitHub Accounts Via SSH Host Configuration</h1>
 
-<p>The remote is powered by a battery that has a fast-charge feature: charging it
-for a few minutes in an emergency should give you 3 hours of use for your next
-presentation. The fuller you charge it, the longer it takes. Logitech claims a
-full charge would last you 3 months.</p>
+<p>The next step is when you have different GitHub accounts (e.g. your work requires
+you to have a dedicated account, and you have personal pet projects that you
+manage using a different account).</p>
 
-<p>This is not a cheap gadget, but eh, it was my birthday not so long ago so I had
-a bit of an extra budget 😆 💰</p>
+<p>Chances are, you&rsquo;d like to authenticate to these separate accounts using SSH.
+For this, you need a little bit of setup, both for SSH and Git.</p>
 
-<p>Next step is to test it in real conference conditions later this year&hellip;</p>
+<p>We&rsquo;ll assume that you have generated two SSH keys: <code>work</code> and <code>personal</code>, linked
+to the adequate GitHub accounts.</p>
+
+<p>First let&rsquo;s setup SSH with <em>Host configuration</em>. In your <code>~/.ssh/</code> folder,
+create a <code>config</code> file (if it doesn&rsquo;t already exists).</p>
+
+<p>In there, put domain-specific configurations like these two:</p>
+
+<pre><code class="language-yaml">#work SSH identity (default)
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_github
+
+#personal SSH identity
+Host batman.github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_githubbatman
+</code></pre>
+
+<p>Let&rsquo;s dive into a bit more details on the second configuration:</p>
+
+<ol>
+<li>The <code>Host batman.github.com</code> is the key: SSH will recognize this &ldquo;virtual&rdquo;
+domain, e.g. in a <code>git remote</code> URL, and associate this configuration to it&hellip;</li>
+<li>&hellip;but it will call the <em>actual</em> <code>github.com</code> domain, as configured by the
+<code>HostName</code> entry.</li>
+<li>The user is still traditionally <code>git</code> in SSH git remotes</li>
+<li>The <code>IdentityFile</code> is the SSH key to use.</li>
+</ol>
+
+<p>Next you still need to tell <code>git</code> to use that SSH identity. For this, you need to
+<strong>edit your git SSH remote(s)</strong> in order to replace the <code>github.com</code> domain in the
+URL with <code>batman.github.com</code>:</p>
+
+<pre><code>git remote set-url origin git@batman.github.com:batman/batcave-OS.git
+</code></pre>
+
+<p>Think of it as a kind of <strong>DNS for Git</strong> 😄</p>
     </div>
   </div>
 
@@ -312,13 +358,10 @@ a bit of an extra budget 😆 💰</p>
   <nav>
   <ul class="pager">
     
-    <li class="previous"><a href="https://simonbasle.github.io/2017/10/starting-a-blog/"><span
-      aria-hidden="true">&larr;</span> Starting a Blog</a></li>
+    <li class="previous"><a href="https://simonbasle.github.io/2017/10/new-gadget-logitech-spotlight/"><span
+      aria-hidden="true">&larr;</span> New Gadget: Logitech Spotlight</a></li>
     
 
-    
-    <li class="next"><a href="https://simonbasle.github.io/2017/10/git-identities-and-ssh/">Git Identities and Ssh <span
-      aria-hidden="true">&rarr;</span></a></li>
     
   </ul>
 </nav>
@@ -370,6 +413,11 @@ a bit of an extra budget 😆 💰</p>
 
       
 
+      
+      
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+        
       
 
       <script>hljs.initHighlightingOnLoad();</script>
