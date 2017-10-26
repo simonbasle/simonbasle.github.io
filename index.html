@@ -175,6 +175,110 @@
       
           
       
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <a href="https://simonbasle.github.io/2017/10/file-reading-in-reactor/">
+    <img src="/img/headers/reactor-file-reading.png" class="article-banner" itemprop="image">
+  </a>
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://simonbasle.github.io/2017/10/file-reading-in-reactor/" itemprop="url">File Reading in Reactor</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2017-10-26 12:50:00 &#43;0200 CEST" itemprop="datePublished">
+      2017-10-26
+    </time>
+  </span>
+
+  
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/reactor">Reactor</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/reactive-programming">reactive programming</a
+    >, 
+    
+    <a href="/tags/java-8">Java 8</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    <p>File reading, line by line in Java&hellip; It&rsquo;s never been a breeze, and until Java 8
+the only high level option you had was to read the lines into a <code>List&lt;String&gt;</code>
+😓</p>
+
+<p>Then Java 8 came along, with its <code>Stream</code> interface, and a <code>Files.lines(Path)</code>
+method that returns a <code>Stream&lt;String&gt;</code>. Turns out, this stream will <strong>lazily</strong>
+read the lines from the file, without ever having to hold the whole content of
+the file in memory 😍</p>
+
+<p>Let&rsquo;s see how we can use that with Reactor!</p>
+
+<p></p>
+    
+  </div>
+  <p class="read-more">
+    <a href="https://simonbasle.github.io/2017/10/file-reading-in-reactor/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
           
       
           
@@ -533,6 +637,20 @@ stage 😅</p>
           
           
           <a href="/tags/identities" style="font-size:0.8rem">identities</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/java-8" style="font-size:0.8rem">java-8</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/reactive-programming" style="font-size:0.8rem">reactive-programming</a>
         
           
           

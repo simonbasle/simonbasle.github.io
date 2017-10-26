@@ -23,6 +23,15 @@
     
     <url>
     
+      <loc>https://simonbasle.github.io/2017/10/file-reading-in-reactor/</loc>
+      <lastmod>2017-10-26T12:50:00+02:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://simonbasle.github.io/2017/10/git-identities-and-ssh/</loc>
       <lastmod>2017-10-09T11:22:39+02:00</lastmod>
     </url>
@@ -155,7 +164,37 @@
     
     <url>
     
+      <loc>https://simonbasle.github.io/tags/java-8/</loc>
+      <lastmod>2017-10-26T12:50:00+02:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://simonbasle.github.io/publication_types/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://simonbasle.github.io/tags/reactive-programming/</loc>
+      <lastmod>2017-10-26T12:50:00+02:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://simonbasle.github.io/categories/reactor/</loc>
+      <lastmod>2017-10-26T12:50:00+02:00</lastmod>
       <priority>0</priority>
     </url>
     

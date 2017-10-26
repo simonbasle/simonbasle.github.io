@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.29" />
+  <meta name="author" content="Simon Baslé">
+  <meta name="description" content="Software Engineer">
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+
+
+  
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat%3a400%2c700%7cRoboto%3a400%2c400italic%2c700%7cRoboto%2bMono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  <link rel="alternate" href="" type="application/rss+xml" title="Simon&#39;s Blog">
+  <link rel="feed" href="" type="application/rss+xml" title="Simon&#39;s Blog">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://simonbasle.github.io/2017/10/file-reading-in-reactor/">
+
+  
+
+  <title>File Reading in Reactor | Simon&#39;s Blog</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Simon&#39;s Blog</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#talks_upcoming">
+            
+            <span>Talks</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>About</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  <img src="/img/headers/reactor-file-reading.png" class="article-banner" itemprop="image">
+  <span class="article-header-caption"><a href="#" title="CC-By-SA Simon BASLE">Code Vignette</a></span>
+</div>
+
+
+
+  <div class="article-container">
+    <h1 itemprop="name">File Reading in Reactor</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2017-10-26 12:50:00 &#43;0200 CEST" itemprop="datePublished">
+      2017-10-26
+    </time>
+  </span>
+
+  
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/reactor">Reactor</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/reactive-programming">reactive programming</a
+    >, 
+    
+    <a href="/tags/java-8">Java 8</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=File%20Reading%20in%20Reactor&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2ffile-reading-in-reactor%2f"
+         target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2ffile-reading-in-reactor%2f"
+         target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2ffile-reading-in-reactor%2f&amp;title=File%20Reading%20in%20Reactor"
+         target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2ffile-reading-in-reactor%2f&amp;title=File%20Reading%20in%20Reactor"
+         target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=File%20Reading%20in%20Reactor&amp;body=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2ffile-reading-in-reactor%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      <p>File reading, line by line in Java&hellip; It&rsquo;s never been a breeze, and until Java 8
+the only high level option you had was to read the lines into a <code>List&lt;String&gt;</code>
+😓</p>
+
+<p>Then Java 8 came along, with its <code>Stream</code> interface, and a <code>Files.lines(Path)</code>
+method that returns a <code>Stream&lt;String&gt;</code>. Turns out, this stream will <strong>lazily</strong>
+read the lines from the file, without ever having to hold the whole content of
+the file in memory 😍</p>
+
+<p>Let&rsquo;s see how we can use that with Reactor!</p>
+
+<p></p>
+
+<h2>Table of Contents</h2>
+<nav id="TableOfContents">
+<ul>
+<li><a href="#how-to-correctly-convert-the-stream-to-a-flux">How To Correctly Convert The <code>Stream</code> To A <code>Flux</code>?</a></li>
+<li><a href="#the-setup">The Setup</a></li>
+<li><a href="#the-code">The Code</a>
+<ul>
+<li><a href="#imperative-version">Imperative Version</a>
+<ul>
+<li><a href="#running-the-imperative-version">Running The Imperative Version</a></li>
+</ul></li>
+<li><a href="#the-stream-and-flux-version">The <code>Stream</code> And <code>Flux</code> Version</a>
+<ul>
+<li><a href="#running-the-reactive-version">Running The Reactive Version</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</nav>
+
+
+<h1 id="how-to-correctly-convert-the-stream-to-a-flux">How To Correctly Convert The <code>Stream</code> To A <code>Flux</code>?</h1>
+
+<p>Let&rsquo;s not kid ourselves, the <code>Stream</code> is doing all the heavy lifting here. But
+the <code>Stream</code> API is not as rich as the <code>Flux</code> API, and maybe the rest of your
+app is using <code>Flux</code> anyway?</p>
+
+<p>Fortunately, the conversion is pretty straightforward since there&rsquo;s a <code>Flux.fromStream</code>
+factory method.</p>
+
+<p>Ah! But this particular <code>Stream</code> of lines is doing I/O and should be <strong>closed</strong>
+when we&rsquo;re done with it, so let&rsquo;s add a little resource management with <code>using</code>:</p>
+
+<pre><code class="language-java">private static Flux&lt;String&gt; fromPath(Path path) {
+	return Flux.using(() -&gt; Files.lines(path),
+			Flux::fromStream,
+			BaseStream::close
+	);
+}
+</code></pre>
+
+<h1 id="the-setup">The Setup</h1>
+
+<p>The example we&rsquo;ll take is one of reading a larger than usual text file to find
+specific lines in it. Namely, the file is a concatenation from several books
+from <a href="https://www.gutenberg.org/" target="_blank">Project Gutenberg</a>, further separated into
+&ldquo;bookshelves&rdquo; by the use of the special line &ldquo;<code>##BOOKSHELF##</code>&rdquo;.</p>
+
+<p>The books are:</p>
+
+<ul>
+<li><code>Alice’s Adventures in Wonderland</code> by Lewis Carroll</li>
+<li><code>Beowulf</code> (unlisted author)</li>
+<li><code>Dracula</code> by Bram Stoker</li>
+<li><code>The Works of Edgar Allan Poe</code> by Edgar Allan Poe (duh)</li>
+<li><code>Grimms’ Fairy Tales</code> by (you guessed it) The Brothers Grimm</li>
+<li><code>Pride and Prejudice</code> by Jane Austen</li>
+<li><code>The Adventures of Sherlock Holmes</code> by Arthur Conan Doyle</li>
+<li><code>The Republic</code> by Plato</li>
+</ul>
+
+<p>I downloaded them into their own <code>.txt</code> files, all prefixed by <code>book-</code>, and did
+the concatenation 7 times to simulate 7 bookshelves, using the following shell
+command:</p>
+
+<pre><code class="language-bash">cat book-* &gt;&gt; bookshelf.txt &amp;&amp; echo &quot;##BOOKSHELF##&quot; &gt;&gt; bookshelf.txt
+</code></pre>
+
+<p>This gives me a nice <strong>34MB</strong> file:</p>
+
+<pre><code>book-alice.txt 170K
+book-beowulf.txt 295K
+book-dracula.txt 863K
+book-edgardAllanPoe.txt 570K
+book-grimmsFairyTales.txt 548K
+book-pridePrejudice.txt 710K
+book-sherlockHolmes.txt 581K
+book-theRepublic.txt 1.2M
+bookshelf.txt 34M
+</code></pre>
+
+<h1 id="the-code">The Code</h1>
+
+<h2 id="imperative-version">Imperative Version</h2>
+
+<p>For reference, here is an imperative approach, from the pre-Java 8 days:</p>
+
+<pre><code class="language-java">private static void listVersion(Path path) throws IOException {
+  final Runtime runtime = Runtime.getRuntime(); // &lt;1&gt;
+
+  List&lt;String&gt; wholeData = Files.readAllLines(path);
+  List&lt;String&gt; books = new ArrayList&lt;&gt;();
+  Iterator&lt;String&gt; iter = wholeData.iterator();
+  String title = null;
+  while(iter.hasNext()) {
+    String line = iter.next();
+
+    if (line.startsWith(&quot;Title: &quot;)) {
+      title = line.replaceFirst(&quot;Title: &quot;, &quot;&quot;);
+    }
+    else if (line.startsWith(&quot;Author: &quot;)) {
+      String author = line.replaceFirst(&quot;Author: &quot;, &quot; by &quot;);
+      books.add(title + author);
+      title = null;
+    }
+    else if (line.equalsIgnoreCase(&quot;##BOOKSHELF##&quot;)) {
+      System.gc(); // &lt;2&gt;
+      System.out.println(&quot;\n\nFound new bookshelf of &quot; + books.size() + &quot; books:&quot;);
+      System.out.println(books);
+      System.out.printf(&quot;Memory in use while reading: %dMB\n&quot;,  // &lt;3&gt;
+        (runtime.totalMemory() - runtime.freeMemory()) / (1024 * 1024));
+      books.clear();
+    }
+  }
+}
+</code></pre>
+
+<p>Notice I sprinkled in some system calls to get a rough idea of the program&rsquo;s
+memory consumption (1️⃣ 3️⃣) and to try and keep it minimal by triggering
+GCs (2️⃣). This is all very naive, but will give us a comparison point.</p>
+
+<p>So what does it do?</p>
+
+<ol>
+<li>Load the lines into a <code>List</code></li>
+<li>Use an <code>Iterator&lt;String&gt;</code> to walk the <code>List</code></li>
+<li>Detect lines of interest: in Gutenberg files, there&rsquo;s a Front Matter with,
+notably, the <code>Title: xxx</code> and <code>Author: xxx</code> lines. We also look for bookshelf
+boundaries with <code>##BOOKSHELF##</code></li>
+<li>If we find the title, we temporarily store it.</li>
+<li>Then we find the author, combine that with the title and put it in a <code>List</code>
+for the current bookshelf.</li>
+<li>When finding a bookshelf boundary, we print the content of the current bookshelf
+and <code>clear()</code> the collection. This is also the point where we regularly GC and
+report about memory usage.</li>
+</ol>
+
+<h3 id="running-the-imperative-version">Running The Imperative Version</h3>
+
+<p>Running this part of the program prints the following output 7 times:</p>
+
+<pre><code class="language-console">Found new bookshelf of 8 books:
+[Alice’s Adventures in Wonderland by Lewis Carroll, Beowulf by  , Dracula by Bram Stoker, The Works of Edgar Allan Poe by Edgar Allan Poe, Grimms’ Fairy Tales by The Brothers Grimm, Pride and Prejudice by Jane Austen, The Adventures of Sherlock Holmes by Arthur Conan Doyle, The Republic by Plato]
+Memory in use while reading: 97MB
+</code></pre>
+
+<p>Notice the memory consumption: 97MB (welp!)</p>
+
+<h2 id="the-stream-and-flux-version">The <code>Stream</code> And <code>Flux</code> Version</h2>
+
+<p>We already saw how to load the file lines in a <code>Stream&lt;String&gt;</code> and convert it
+to a <code>Flux&lt;String&gt;</code> properly.</p>
+
+<p>Let&rsquo;s look at implementing the bookshelf algorithm in a reactive way:</p>
+
+<pre><code class="language-java">private static Flux&lt;String&gt; fluxVersion(Path path) {
+  final Runtime runtime = Runtime.getRuntime();
+
+  return fromPath(path)
+      .filter(s -&gt; s.startsWith(&quot;Title: &quot;) || s.startsWith(&quot;Author: &quot;)
+          || s.equalsIgnoreCase(&quot;##BOOKSHELF##&quot;))
+      .map(s -&gt; s.replaceFirst(&quot;Title: &quot;, &quot;&quot;))
+      .map(s -&gt; s.replaceFirst(&quot;Author: &quot;, &quot; by &quot;))
+      .windowWhile(s -&gt; !s.contains(&quot;##&quot;))
+      .flatMap(bookshelf -&gt; bookshelf
+          .window(2)
+          .flatMap(bookInfo -&gt; bookInfo.reduce(String::concat))
+          .collectList()
+          .doOnNext(s -&gt; System.gc())
+          .flatMapMany(bookList -&gt; Flux.just(
+              &quot;\n\nFound new Bookshelf of &quot; + bookList.size() + &quot; books:&quot;,
+              bookList.toString(),
+              String.format(&quot;Memory in use while reading: %dMB\n&quot;, (runtime.totalMemory() - runtime.freeMemory()) / (1024 * 1024))
+          )));
+}
+</code></pre>
+
+<ol>
+<li>We work on a <code>Flux&lt;String&gt;</code> of all the lines in the file (lazily loaded
+thanks to the underlying <code>Stream</code>)</li>
+<li>We filter out most of the text to only keep title/author info and bookshelf
+boundaries.</li>
+<li>We use <code>map</code> to remove the <code>Title:</code> and <code>Author:</code> prefixes, preparing for
+the creation of a book information <code>String</code>.</li>
+<li>We use <code>windowWhile</code> to group bookshelves into windows, sub-sequences that
+include all the data except the window separator. This gives us a <code>Flux&lt;Flux&lt;String&gt;&gt;</code>.</li>
+<li>We use <code>flatMap</code> to process each bookshelf window and go back to a <code>Flux&lt;String&gt;</code>:
+
+<ol>
+<li>Regroup title and author lines using <code>window(2)</code></li>
+<li>Concatenate the contents of the window into a single <code>String</code> per book</li>
+<li>Collect a <code>List&lt;String&gt;</code> of the books in the bookshelf.</li>
+<li>Perform a GC on the side, like we did in the imperative version, using <code>doOnNext</code>.</li>
+<li>Now we have reactively collected a <code>List&lt;String&gt;</code> of books in the current
+bookshelf, which is entirely processed. We use <code>flatMapMany</code> to emit the 3
+Strings we&rsquo;ll want to print out: &ldquo;Found new Bookshelf&hellip;&rdquo;, the actual list
+of books and a report of the memory in use.</li>
+</ol></li>
+</ol>
+
+<p>That&rsquo;s it: we now have a <code>Flux&lt;String&gt;</code> that represents what to output.</p>
+
+<h3 id="running-the-reactive-version">Running The Reactive Version</h3>
+
+<blockquote>
+<p>Nothing Happens Until You Subscribe</p>
+</blockquote>
+
+<p>Here, we have represented our algorithm in the form of a <code>Flux</code>. But until you
+call some form of <code>subscribe()</code> (including <code>block*()</code> methods), nothing will
+happen. <code>Flux</code> is lazy by default, what&rsquo;s called a <em>&ldquo;Cold Sequence&rdquo;</em>.</p>
+
+<p>Since we&rsquo;ll be running it in a console application&rsquo;s <code>main()</code> method, we need
+to block until the processing is finished. The best way to print the results and
+wait for the end of processing is to use <code>Flux#blockLast()</code>:</p>
+
+<pre><code>Flux&lt;String&gt; books = fluxVersion(path);
+books.doOnNext(System.out::println)
+     .blockLast();
+</code></pre>
+
+<p>This produces the following output:</p>
+
+<pre><code class="language-console">Found new Bookshelf of 8 books:
+[Alice’s Adventures in Wonderland by Lewis Carroll, Beowulf by  , Dracula by Bram Stoker, The Works of Edgar Allan Poe by Edgar Allan Poe, Grimms’ Fairy Tales by The Brothers Grimm, Pride and Prejudice by Jane Austen, The Adventures of Sherlock Holmes by Arthur Conan Doyle, The Republic by Plato]
+Memory in use while reading: 3MB
+</code></pre>
+
+<p>3MB, yay 😁</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<div class="alert alert-note">
+  <p>One caveat of the <code>Stream</code>-to-<code>Flux</code> conversion is that a <code>Stream</code> cannot be
+reused whereas a <code>Flux</code> <em>could</em> be subscribed to several times.</p>
+
+<p>The <code>fromStream</code>
+factory method is currently<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup> effectively limited to a single subscription,
+as it takes the <code>Stream</code> rather than a <code>Supplier&lt;Stream&gt;</code> that could be reused
+for further subscriptions.You can work around that by using <code>defer</code> though:</p>
+
+<pre><code class="language-java">Flux&lt;String&gt; lines = Flux.defer(() -&gt; Flux.fromStream(Files.lines(thePath)));
+</code></pre>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">As of this writing, <a href="https://github.com/reactor/reactor-core/" target="_blank">reactor-core</a> v3.1.1.RELEASE
+ <a class="footnote-return" href="#fnref:1"><sup>^</sup></a></li>
+</ol>
+</div>
+
+</div>
+
+
+<p>The full code is
+available in a <a href="https://gist.github.com/simonbasle/0167a1f833a19724646bc7eb27e4346b" target="_blank">📄gist</a>,
+complete with a <code>main</code> that asks you for a text file to load and runs the
+reactive version then the imperative one 👍</p>
+
+<pre><code class="language-console">Please enter a path to a large text file [/Users/sbasle/bookshelf.txt]:
+Found /Users/sbasle/bookshelf.txt, of size 33MB
+Memory in use before reading: 0MB
+</code></pre>
+
+<p>And&hellip; that&rsquo;s the end of our post. <strong>Happy Reactive Coding!</strong></p>
+    </div>
+  </div>
+
+</article>
+
+
+
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+    <li class="previous"><a href="https://simonbasle.github.io/2017/10/git-identities-and-ssh/"><span
+      aria-hidden="true">&larr;</span> Git Identities and Ssh</a></li>
+    
+
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Simon Baslé &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
