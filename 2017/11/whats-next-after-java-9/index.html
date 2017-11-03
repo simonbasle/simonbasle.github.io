@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.29" />
+  <meta name="author" content="Simon Baslé">
+  <meta name="description" content="Software Engineer">
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+
+
+  
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat%3a400%2c700%7cRoboto%3a400%2c400italic%2c700%7cRoboto%2bMono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  <link rel="alternate" href="" type="application/rss+xml" title="Simon&#39;s Blog">
+  <link rel="feed" href="" type="application/rss+xml" title="Simon&#39;s Blog">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://simonbasle.github.io/2017/11/whats-next-after-java-9/">
+
+  
+
+  <title>Whats Next After Java 9 | Simon&#39;s Blog</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Simon&#39;s Blog</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#talks_upcoming">
+            
+            <span>Talks</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>About</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  <img src="/img/headers/whats-next-after-java9.jpg" class="article-banner" itemprop="image">
+  <span class="article-header-caption"><a href="#" title="Copyright New Line Cinema">looking into the Palantir</a></span>
+</div>
+
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Whats Next After Java 9</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2017-11-02 15:48:44 &#43;0100 CET" itemprop="datePublished">
+      2017-11-02
+    </time>
+  </span>
+
+  
+  <span class="article-reading-time">
+    11 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/java">Java</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/future-of-java">Future of Java</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Whats%20Next%20After%20Java%209&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f11%2fwhats-next-after-java-9%2f"
+         target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsimonbasle.github.io%2f2017%2f11%2fwhats-next-after-java-9%2f"
+         target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f11%2fwhats-next-after-java-9%2f&amp;title=Whats%20Next%20After%20Java%209"
+         target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f11%2fwhats-next-after-java-9%2f&amp;title=Whats%20Next%20After%20Java%209"
+         target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Whats%20Next%20After%20Java%209&amp;body=https%3a%2f%2fsimonbasle.github.io%2f2017%2f11%2fwhats-next-after-java-9%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      <p>With Java 9 out the door, you might wonder what the future holds for Java. I do
+too, so I had a quick look at current JEPs and Projects candidates to see what
+is looming ahead (you&rsquo;ll get this joke in a second 😁).</p>
+
+<p>In this article I will glance at the ones that stood out to me. Keep in mind
+most of these are not finalized, some are even just exploratory&hellip;</p>
+
+<p>Without further ceremony, let&rsquo;s dive in!</p>
+
+<p></p>
+
+<h2>Table of Contents</h2>
+<nav id="TableOfContents">
+<ul>
+<li><a href="#value-types">🎰 Value Types</a></li>
+<li><a href="#generics-over-primitive-types">🃏 Generics Over Primitive Types</a></li>
+<li><a href="#data-classes">📦 Data Classes</a></li>
+<li><a href="#better-enums">💄 Better Enums</a></li>
+<li><a href="#lambdas-leftovers">🍂 Lambdas Leftovers</a>
+<ul>
+<li><a href="#treatment-of-underscores">Treatment of Underscores</a></li>
+<li><a href="#shadowing-of-lambda-parameters">Shadowing of Lambda Parameters</a></li>
+<li><a href="#better-disambiguation-of-functional-expressions">Better Disambiguation of Functional Expressions</a></li>
+</ul></li>
+<li><a href="#project-loom-lightweight-threads-on-the-jvm">⚡️ Project Loom, Lightweight Threads on the JVM</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</nav>
+
+
+<h1 id="value-types">🎰 Value Types</h1>
+
+<div class="alert alert-note">
+  <p>This is part of <code>Project Valhalla</code>, under <a href="http://openjdk.java.net/jeps/169" target="_blank">JEP-169</a>.
+The initial design document can be seen <a href="http://cr.openjdk.java.net/~jrose/values/values-0.html" target="_blank">here</a>.</p>
+
+</div>
+
+
+<p>Project Valhalla has been announced some time ago, in July 2014. One of its focus
+is to bring <em>Value Types</em> to the JVM: types that are neither primitive nor <code>Object</code>,
+but something in the middle:</p>
+
+<blockquote>
+<p>Codes like a class, works like an int!</p>
+</blockquote>
+
+<p>Such types, like primitive types, would have no <strong>identity</strong> and would be <strong>immutable</strong>.
+This in turns allow efficient memory layout where all the data backing the type
+is colocated in memory and doesn&rsquo;t need things like <em>boxing</em>. The typical
+example used in the JEP is that of a <code>Point</code>, which is just an aggregate type
+around two <code>int</code>s (the <code>x</code> and <code>y</code> coordinates). A <code>Point</code> doesn&rsquo;t need mutability,
+and equality is defined by that of its coordinates, not its reference.</p>
+
+<p>With value types, another improvement would occur with arrays of <code>Point</code>s: there
+would be no dereference of pointers needed with a <code>Point[]</code> like there is eg. for
+a <code>String[]</code>:</p>
+
+<blockquote>
+<p>Similarly, an array of Points would be laid out as a packed array of
+alternating x and y values, rather than a series of references.</p>
+</blockquote>
+
+<p>Other than that, Value Types have all the features of regular classes (except
+those that rely on the concept of identity, eg. cloning, locking&hellip;).</p>
+
+<p>Foreseen usage range from custom numeric types (like <em>complex</em> numbers) to
+flatter data structures (<code>Map</code> with less levels of indirection anyone?), Tuples
+and algebraic data types like <code>Either</code> or <code>Optional</code>.</p>
+
+<h1 id="generics-over-primitive-types">🃏 Generics Over Primitive Types</h1>
+
+<div class="alert alert-note">
+  <p>This is part of <code>Project Valhalla</code>, under <a href="http://openjdk.java.net/jeps/218" target="_blank">JEP-218</a>.</p>
+
+</div>
+
+
+<p>In this proposal, also part of Project Valhalla, generic types are improved by
+allowing generic classes to be generified over non-<code>Object</code> types.</p>
+
+<p>So far, having a generic class work with a primitive type would involve the
+overhead of <strong>boxing</strong> that primitive type (eg. from an <code>int</code> to <code>Integer</code>).
+Alternatively, one would need to introduce artificial specialized types (like
+the <code>IntStream</code> in Java 8).</p>
+
+<blockquote>
+<p>more memory, more more indirection, allocation, and more garbage collection</p>
+</blockquote>
+
+<p>With the upcoming introduction of value types, this become even more problematic,
+as there would be a proliferation of types that are &ldquo;hostile to generics&rdquo;.</p>
+
+<p>So the JEP aims at overcoming these limitations of generics in Java and making
+them compatible with both primitive types and value types 👍.</p>
+
+<h1 id="data-classes">📦 Data Classes</h1>
+
+<div class="alert alert-note">
+  <p>This is explored in <code>Project Amber</code> by Brian Goetz <a href="http://cr.openjdk.java.net/~briangoetz/amber/datum.html" target="_blank">here</a>
+(not a proposal yet).</p>
+
+</div>
+
+
+<p>In this very nascent proposal (early design document dates from October 2017),
+Brian Goetz explores the possibility of having <code>Data Classes</code> in Java.</p>
+
+<p>Data classes are readily available in other JVM like Kotlin and Scala (where
+they&rsquo;re called <code>case</code> classes). The document notes that there are different
+flavors of data classes, listed in a light and funny way as personas:</p>
+
+<ul>
+<li><code>Algebraic Annie</code> (&ldquo;a data class is just an algebraic product type&rdquo;, fits well with pattern
+matching)</li>
+<li><code>Boilerplate Billy</code> (&ldquo;a data class is just an ordinary class with better syntax&rdquo;)</li>
+<li><code>Tuple Tommy</code> (&ldquo;a data class is just a nominal tuple&rdquo;)</li>
+<li><code>Values Victor</code> (&ldquo;a data class is really just a more transparent value type&rdquo;)</li>
+</ul>
+
+<p>But in essence, the document falls on the definition where a data class is a
+class where the state can be described directly in the class header and is a
+&ldquo;plain data carrier&rdquo;: it is the data, the whole data, and nothing but the data.</p>
+
+<p>This implies a strong relationship between the class and its <em>state vector</em>:
+a data class can be constructed by simply providing its state, and can be
+deconstructed down to its state components. Additionally, deconstructing an
+instance to its state vector then reconstructing another instance from that is
+always going to yield an equivalent instance.</p>
+
+<p>The constraints listed allow to safely remove some boilerplate (although Brian
+seems to think of it as a bonus rather than the end goal: I guess he&rsquo;s no
+Boilerplate Billy 😄).</p>
+
+<p>Namely, Data Classes would not require the developer to write constructors,
+accessors, <code>Object</code> methods (<code>equals()</code>, <code>hashcode()</code> and <code>toString()</code>)&hellip;
+They would also be a very good fit for <em>externalization</em>, eg. marshaling to
+JSON.</p>
+
+<p>This doesn&rsquo;t mean that it would not be possible to have custom constructors, on
+the contrary! The only limitation would be that such constructors <strong>must</strong> call
+the default one (potentially via a <code>default()</code> keyword rather than <code>super()</code>).
+As the typical use case for that sort of constructor would be to do state vector
+checks (e.g. to do invariant checks, like preventing the construction of a
+<em>rational</em> number with a <code>0</code> denominator), the limitations of <code>super()</code>
+constructor calls would be partially lifted:</p>
+
+<pre><code class="language-java">// Explicit principal constructor
+public Range(int lo, int hi) {
+    // validation logic can happen before call to default constructor
+    if (lo &gt; hi)
+        throw new IllegalArgumentException(...);
+
+    // delegate to default constructor
+    default(lo, hi);
+}
+</code></pre>
+
+<p>Furthermore, data classes would be like regular classes in many regards (much
+like enums): nothing would prevent them from being generic, having methods,
+implementing interfaces, etc&hellip;</p>
+
+<p>Things like mutability of fields are still up in the air however.</p>
+
+<p>An interesting section of the design document covers the overlap between data
+classes and value types, concluding with the following:</p>
+
+<blockquote>
+<p>the notion of a &ldquo;value data class&rdquo; is perfectly sensible for things like
+extended numerics or tuples.</p>
+</blockquote>
+
+<p>Value types sacrifice the notion of <strong>identity</strong> for a gain in terms of memory
+(a &ldquo;flat and dense layout of objects in memory&rdquo;). Data classes have different
+restrictions (most likely, at least, no read access encapsulation) and associated
+gains (including less boilerplate).</p>
+
+<p>Overall, this design document is a very informative and entertaining read, and
+it will be interesting to see the final direction the JEP takes.</p>
+
+<h1 id="better-enums">💄 Better Enums</h1>
+
+<div class="alert alert-note">
+  <p>This is discussed in the Candidate <a href="http://openjdk.java.net/jeps/301" target="_blank">JEP-301</a>.</p>
+
+</div>
+
+
+<p>This one is all about improving enums, most notably by enabling generics on
+enums:</p>
+
+<pre><code class="language-java">public enum Key&lt;X&gt; {
+
+  NAME&lt;String&gt;(&quot;foo&quot;),
+  AGE&lt;Integer&gt;(0);
+
+  private final X defaultValue;
+
+  Key(X def) {
+    this.defaultValue = def;
+  }
+
+  public X defaultValue() {
+    return defaultValue;
+  }
+}
+</code></pre>
+
+<p>Additionally, the generic type would have better retention on enums in order for
+the compiler to perform sharper type checking for enum constants. That would
+have two direct applications:</p>
+
+<ul>
+<li><code>NAME</code> and <code>AGE</code> above would be of distinct types, preventing e.g. to pass a
+<code>NAME</code> to a method that takes a <code>Key&lt;Integer&gt;</code> as a parameter.</li>
+<li>The type specialization would allow to access methods declared at the levels
+of a specific enum constant.</li>
+</ul>
+
+<p>Here is an example of such a case:</p>
+
+<pre><code class="language-java">public enum Key&lt;X&gt; {
+
+  NAME&lt;String&gt;(&quot;foo&quot;),
+  TELEPHONE&lt;String&gt;(&quot;&quot;) {
+    boolean validatePhone(String phone) { return phone != null &amp;&amp; phone.startsWith(&quot;+&quot;); }
+  },
+  AGE&lt;Integer&gt;(0);
+
+  //...
+}
+
+String phone;
+if (Key.TELEPHONE.validatePhone(phone)) {
+  map.put(Key.TELEPHONE, phone);
+}
+</code></pre>
+
+<h1 id="lambdas-leftovers">🍂 Lambdas Leftovers</h1>
+
+<div class="alert alert-note">
+  <p>This is discussed in the Candidate <a href="http://openjdk.java.net/jeps/302" target="_blank">JEP-302</a>.</p>
+
+</div>
+
+
+<p>There are three main areas where lambdas can still be improved in Java 10 and
+beyond, which are the focus of this proposal:</p>
+
+<ul>
+<li>Treatment of underscores</li>
+<li>Shadowing of lambda parameters</li>
+<li>Better disambiguation for functional expressions</li>
+</ul>
+
+<h2 id="treatment-of-underscores">Treatment of Underscores</h2>
+
+<p>The first one has been prepared for in both Java 8 and Java 9: a simple
+underscore identifier <code>_</code>:</p>
+
+<ul>
+<li>was A-OK in Java 7 and below</li>
+<li>would produce a compiler warning discouraging in in methods in Java 8. It was
+also forbidden by the compiler <em>for lambda parameters</em>.</li>
+<li>became forbidden by the compiler in Java 9.</li>
+</ul>
+
+<p>Thus the goal of this proposal is to build on that preparation to rehabilitate
+<code>_</code> as a reserved identifier denoting unused parameters (be it in methods, lambdas
+or catch clauses). In the future, one will be able to use <code>_</code> to tell the compiler
+this is a parameter one doesn&rsquo;t intend to use, allowing stronger static checks
+in that regard:</p>
+
+<pre><code class="language-java">//Given Map's computeIfPresent(K key, BiFunction&lt;K, V, V&gt; remapping):
+someMap.computeIfPresent(&quot;foo&quot;, (_, currentValue) -&gt; currentValue + 1);
+</code></pre>
+
+<h2 id="shadowing-of-lambda-parameters">Shadowing of Lambda Parameters</h2>
+
+<p>In Java 8 and 9, lambda parameters cannot have the same name as a variable in
+the lambda&rsquo;s enclosing scope:</p>
+
+<pre><code class="language-java">Map&lt;String, Integer&gt; msi;//...
+//...
+String key = computeSomeKey();
+msi.computeIfAbsent(key, key -&gt; key.length()); //error
+</code></pre>
+
+<p>The error occurs because the lambda declares a parameter <code>key</code> that has the
+same name as a variable in the scope.</p>
+
+<p>This proposal offers to allow such shadowing, as it has become a recurring pain
+point of lambdas.</p>
+
+<h2 id="better-disambiguation-of-functional-expressions">Better Disambiguation of Functional Expressions</h2>
+
+<p>This one is considered optional in the proposal, but sounds appealing to me.
+The typical problem it proposes to solve is the case where a class has two or
+more method overloads that take functional interfaces as parameter, and the
+compiler sees an ambiguity when calling these methods with a lambda expression:</p>
+
+<pre><code class="language-java">public class Value {
+  Value operate(Predicate&lt;String&gt; filter);
+  Value operate(Function&lt;String, String&gt; transform);
+}
+
+Value v = new Value();
+v.operate(v -&gt; false);
+</code></pre>
+
+<p>Although it seems rather obvious that the <code>Function&lt;String, String&gt;</code> variant
+doesn&rsquo;t apply here, the compiler doesn&rsquo;t see it that way. This is because it
+considers an implicit lambda as <em>not pertinent to applicability</em>, and then
+performs a relaxed check where only the arity of parameter is compared to that
+of the target function type.</p>
+
+<p>In order to eliminate the accidental ambiguity there, the compiler could still
+look at the lambda&rsquo;s return type and detect that it doesn&rsquo;t match the candidate
+function type, eliminating the <code>Function&lt;String, String&gt;</code> variant from its list
+of candidates.</p>
+
+<h1 id="project-loom-lightweight-threads-on-the-jvm">⚡️ Project Loom, Lightweight Threads on the JVM</h1>
+
+<blockquote>
+<p>Aka Fibers, Coroutines</p>
+</blockquote>
+
+<div class="alert alert-note">
+  <p><a href="http://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html" target="_blank"><code>Project Loom</code></a>
+is currently in the Call For Votes phase, until November 10th 2017. With only
+&ldquo;yes&rdquo; votes so far, things are looking good :)</p>
+
+</div>
+
+
+<p>Since <a href="http://projectreactor.io" target="_blank">I work on a library</a> that aims, among other
+things, at making concurrent programming easier in Java, this one is of the most
+interest to me 😎 ✨</p>
+
+<p>Project <code>Loom</code> aims at adding a new concurrency tool to the Java toolbelt:
+<strong>fibers</strong>. Fibers are defined as lightweight <code>Thread</code>s, eliminating classic
+threads limitations such as their overhead, switching cost and instance count
+threshold (it would be perfectly fine to spawn millions of fibers on a single JVM).</p>
+
+<p>Project Loom&rsquo;s end goal is described as:</p>
+
+<blockquote>
+<p>to eliminate the tradeoff between simplicity and efficiency in writing
+concurrent programs.</p>
+</blockquote>
+
+<p>A light thread can run code written in imperative style, issuing blocking calls.
+It is made up of a <strong>scheduler</strong> and of what is called <strong>continuation</strong>.
+Project Loom assesses that Java already has a plenty capable scheduler in the
+form of the <code>ForkJoinPool</code>, so it will focus on bringing <em>continuations</em> on the
+JVM. Since continuations have other applications, it will probably be a
+user-facing concept as well, embedded in the Java language itself.</p>
+
+<p>But what&rsquo;s a continuation? A <em>thread</em> (in the general sense) is a sequence of
+instructions that run sequentially on a CPU core. It has the ability to suspend
+itself and automatically resume at a later point in time (eg. while waiting on
+IO). The pausable sequence of instructions is what we called the <em>continuation</em>.
+The proposed flavor is called a <code>delimited continuation</code> or <code>coroutine</code>. In a
+way, this is akin to Go and Kotlin&rsquo;s <em>coroutines</em>.</p>
+
+<p>The other piece of the puzzle is the scheduler: it is its responsibility to
+assign the continuation to a particular CPU core and ensure a ready-to-resume
+continuation will eventually be assigned a core.</p>
+
+<p>Current <code>Thread</code> in Java are kernel-mode threads: the scheduler is the OS, so
+it runs in kernel space and has no particular knowledge of the work that is being
+done by the continuation (in user space). Furthermore, user/kernel mode switches
+have a cost.</p>
+
+<p>Project Loom&rsquo;s lightweight threads, or <em>fibers</em>, are user-mode threads: the
+scheduling will also happens within the JVM. This allows the scheduler to make
+more pinpointed assumptions about the usage pattern, and optimize scheduling
+accordingly.</p>
+
+<p>Fibers would be very similar in terms of API to <code>Thread</code> (so much so that it
+might be possible to implement them by just modifying the <code>Thread</code> class), but
+would additionally</p>
+
+<ol>
+<li>have a pluggable scheduler (allowing switching schedulers
+when a fiber is paused).</li>
+<li>be serializable.</li>
+</ol>
+
+<p>Once again, the design document is a very informative and accessible read. It
+exposes the concepts and challenges around bringing fibers to the JVM, as well
+as some additional applications of continuations. Definitely a recommended read!</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>As you can see, plenty of interesting stuff is on the table for future versions
+of Java 🎉</p>
+
+<p>With the switch to a release cycle with higher frequency, some of
+these features might not be that far ahead of us, although they haven&rsquo;t been
+associated to an exact roadmap yet. Time will tell 📆 🔮 👀</p>
+    </div>
+  </div>
+
+</article>
+
+
+
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+    <li class="previous"><a href="https://simonbasle.github.io/2017/10/file-reading-in-reactor/"><span
+      aria-hidden="true">&larr;</span> File Reading in Reactor</a></li>
+    
+
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Simon Baslé &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
