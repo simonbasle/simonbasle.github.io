@@ -58,11 +58,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="https://simonbasle.github.io/2017/10/new-gadget-logitech-spotlight/">
+  <link rel="canonical" href="https://simonbasle.github.io/tags/mdc/">
 
   
 
-  <title>New Gadget: Logitech Spotlight | Simon&#39;s Blog</title>
+  <title>Mdc | Simon&#39;s Blog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -145,204 +145,36 @@
 </nav>
 
 
-<article class="article" itemscope itemtype="http://schema.org/Article">
+
+
+
+<div class="universal-wrapper">
+
+  <h1>Mdc</h1>
 
   
 
-
-  <div class="article-container">
-    <h1 itemprop="name">New Gadget: Logitech Spotlight</h1>
-    
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2017-10-06 17:31:42 &#43;0200 CEST" itemprop="datePublished">
-      2017-10-06
-    </time>
-  </span>
-
-  
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
   
   
-  
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/gadgets">Gadgets</a
-    >
-    
-  </span>
-  
-  
-
-  
-  
-  
-  <span class="article-tags">
-    <i class="fa fa-tags"></i>
-    
-    <a href="/tags/speaking">Speaking</a
-    >, 
-    
-    <a href="/tags/hardware">Hardware</a
-    >
-    
-  </span>
-  
-  
-
-  
-  
-<div class="share-box" aria-hidden="true">
-  <ul class="share">
-    <li>
-      <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=New%20Gadget%3a%20Logitech%20Spotlight&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fnew-gadget-logitech-spotlight%2f"
-         target="_blank">
-        <i class="fa fa-twitter"></i>
-      </a>
-    </li>
-    <li>
-      <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fnew-gadget-logitech-spotlight%2f"
-         target="_blank">
-        <i class="fa fa-facebook"></i>
-      </a>
-    </li>
-    <li>
-      <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fnew-gadget-logitech-spotlight%2f&amp;title=New%20Gadget%3a%20Logitech%20Spotlight"
-         target="_blank">
-        <i class="fa fa-linkedin"></i>
-      </a>
-    </li>
-    <li>
-      <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fnew-gadget-logitech-spotlight%2f&amp;title=New%20Gadget%3a%20Logitech%20Spotlight"
-         target="_blank">
-        <i class="fa fa-weibo"></i>
-      </a>
-    </li>
-    <li>
-      <a class="email"
-         href="mailto:?subject=New%20Gadget%3a%20Logitech%20Spotlight&amp;body=https%3a%2f%2fsimonbasle.github.io%2f2017%2f10%2fnew-gadget-logitech-spotlight%2f">
-        <i class="fa fa-envelope"></i>
-      </a>
-    </li>
-  </ul>
+  <div>
+    <h2><a href="https://simonbasle.github.io/2018/02/contextual-logging-with-reactor-context-and-mdc/">Contextual Logging with Reactor Context and MDC</a></h2>
+    <div class="article-style">
+      
+      <div class="paragraph">
+<p>In this post, we&#8217;ll look at how to combine the MDC feature of current logging framework
+with <a href="https://projectreactor.io/">Reactor</a>'s own <code>Context</code>, in order to make contextualized logging possible within
+a reactive application.</p>
 </div>
 
-
-  
-
-</div>
-
-    <div class="article-style" itemprop="articleBody">
-      <p>As you might know, I sometimes speak about Programming at
-<a href="/#talks_upcoming">conferences</a>&hellip; One handy tool for speakers is to have a
-<strong>remote</strong>, which allows you to advance your slides without having to constantly
-hug your computer, looming over that space bar and staying at the edge of the
-stage 😅</p>
-
-<p></p>
-
-<p>After all, you&rsquo;ve <em>got</em> to make use of the whole space, move back and forth&hellip;
-It keeps the presentation dynamic 👍</p>
-
-<div class="alert alert-note">
-  <p>By the way, if you ever see me at a conference, don&rsquo;t hesitate: please come and
-say Hi!</p>
-
-</div>
-
-
-<p>So for a few years now, I&rsquo;ve had a solid R800 by Logitech. But recently, I
-discovered they released an even higher end remote that goes beyond the
-traditional 2-buttons-to-advance-slides set of features: <strong>Enter the Logitech
-Spotlight</strong> 🔦</p>
-
-<p>The remote packaging and build feel high end, even the installer looks pretty
-modern:
-<img src="/img/logitech-spotlight-install.png" alt="" /></p>
-
-<p>This remote only has 3 buttons, 2 of which are pretty classic: the largest one
-to move forward and a small one underneath to move backward.</p>
-
-<p>But its secret sauce is the <strong>third button</strong> at the top of the remote (let&rsquo;s
-call it the &ldquo;spotlight button&rdquo; 👻).</p>
-
-<p>It is a sort of software-based laser pointer! With the remote&rsquo;s driver installed,
-clicking the button dims most of the screen except a round area around your
-pointer. And the best part is, the remote has an accelerometer, so you can
-<strong>move the pointer</strong> (even if you&rsquo;re not facing the screen).</p>
-
-<p>This really feels like having a torchlight you can use to show specific parts of
-your slides. And since it&rsquo;s all in the software, it displays on the projector
-and it will also show up in videos when your screen gets captured (or when
-sharing your screen during webinars for instance).</p>
-
-
-<figure >
-    
-        <img src="/img/logitech-spotlight-in-action.png" />
-    
-    
-    <figcaption>
-        <h4>Yes, even screenshots!</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<p>Pretty neat 😄</p>
-
-<p>The remote is powered by a battery that has a fast-charge feature: charging it
-for a few minutes in an emergency should give you 3 hours of use for your next
-presentation. The fuller you charge it, the longer it takes. Logitech claims a
-full charge would last you 3 months.</p>
-
-<p>This is not a cheap gadget, but eh, it was my birthday not so long ago so I had
-a bit of an extra budget 😆 💰</p>
-
-<p>Next step is to test it in real conference conditions later this year&hellip;</p>
+      
     </div>
   </div>
-
-</article>
-
-
-
-
-<div class="container">
-  <nav>
-  <ul class="pager">
-    
-    <li class="previous"><a href="https://simonbasle.github.io/2017/10/starting-a-blog/"><span
-      aria-hidden="true">&larr;</span> Starting a Blog</a></li>
-    
-
-    
-    <li class="next"><a href="https://simonbasle.github.io/2017/10/git-identities-and-ssh/">Git Identities and Ssh <span
-      aria-hidden="true">&rarr;</span></a></li>
-    
-  </ul>
-</nav>
-
-</div>
-
-<div class="article-container">
   
 
-</div>
+  
 
+
+</div>
 <footer class="site-footer">
   <div class="container">
     <p class="powered-by">

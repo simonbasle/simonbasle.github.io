@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.29" />
+  <meta name="author" content="Simon Baslé">
+  <meta name="description" content="Software Engineer">
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+
+
+  
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat%3a400%2c700%7cRoboto%3a400%2c400italic%2c700%7cRoboto%2bMono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-109134521-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  <link rel="alternate" href="" type="application/rss+xml" title="Simon&#39;s Blog">
+  <link rel="feed" href="" type="application/rss+xml" title="Simon&#39;s Blog">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://simonbasle.github.io/2018/02/contextual-logging-with-reactor-context-and-mdc/">
+
+  
+
+  <title>Contextual Logging with Reactor Context and MDC | Simon&#39;s Blog</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Simon&#39;s Blog</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#talks_upcoming">
+            
+            <span>Talks</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>About</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  <img src="/img//headers/reactor-mdc-logging.jpg" class="article-banner" itemprop="image">
+  <span class="article-header-caption"><a href="https://www.flickr.com/photos/aarongustafson/8695269997" title="CC-By-SA Aaron Gustafson" target="_blank">Content &amp; Context 🔗</a></span>
+</div>
+
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Contextual Logging with Reactor Context and MDC</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-02-03 15:34:30 &#43;0100 CET" itemprop="datePublished">
+      2018-02-03
+    </time>
+  </span>
+
+  
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/reactor">Reactor</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/reactor">Reactor</a
+    >, 
+    
+    <a href="/tags/context">Context</a
+    >, 
+    
+    <a href="/tags/logging">Logging</a
+    >, 
+    
+    <a href="/tags/mdc">MDC</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Contextual%20Logging%20with%20Reactor%20Context%20and%20MDC&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2018%2f02%2fcontextual-logging-with-reactor-context-and-mdc%2f"
+         target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsimonbasle.github.io%2f2018%2f02%2fcontextual-logging-with-reactor-context-and-mdc%2f"
+         target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2018%2f02%2fcontextual-logging-with-reactor-context-and-mdc%2f&amp;title=Contextual%20Logging%20with%20Reactor%20Context%20and%20MDC"
+         target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsimonbasle.github.io%2f2018%2f02%2fcontextual-logging-with-reactor-context-and-mdc%2f&amp;title=Contextual%20Logging%20with%20Reactor%20Context%20and%20MDC"
+         target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Contextual%20Logging%20with%20Reactor%20Context%20and%20MDC&amp;body=https%3a%2f%2fsimonbasle.github.io%2f2018%2f02%2fcontextual-logging-with-reactor-context-and-mdc%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      <div class="paragraph">
+<p>In this post, we&#8217;ll look at how to combine the MDC feature of current logging framework
+with <a href="https://projectreactor.io/">Reactor</a>'s own <code>Context</code>, in order to make contextualized logging possible within
+a reactive application.</p>
+</div>
+<div class="paragraph">
+<p></p>
+</div>
+<div class="sect1">
+<h2 id="_the_need">The need</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let&#8217;s imagine that we have an API that lists restaurants in your area, under a requested price.
+It simply interrogates a database and logs the found restaurants in the console.</p>
+</div>
+<div class="paragraph">
+<p>Only problem is, whenever two customers request the API at the same time, sometimes their
+logs are mixed and you don&#8217;t have a way to find out who got what</p>
+</div>
+<div class="paragraph">
+<p>To simulate such a situation we can issue two <code>HTTPie</code> <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup> calls:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http :8080/byPrice maxPrice==12 &amp; http :8080/byPrice maxPrice==11</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Usually, one solution would be to use the <code>MDC</code> feature of logging frameworks like Logback
+(SLF4J has a MDC abstraction that will delegate to the equivalent in the underlying
+framework if it has such a feature). You can put key-value pairs in the MDC and
+refer to the keys in your logging appender&#8217;s pattern, and the values will magically
+appear in the logs.</p>
+</div>
+<div class="paragraph">
+<p>For instance, to solve our logging issue we could ask that every user puts its
+userId in an HTTP request header, and then use that id as a differentiator in the
+MDC:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ini" data-lang="ini">logging.pattern.console=%magenta([%thread]) %cyan([%X{apiID}]) - %highlight(%-5level) %logger{36}.%M - %msg%n <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>notice the <code>%X{apiID}</code>, that&#8217;s our MDC key</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_issue">The issue</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is all good and well in eg. a Spring MVC app, where the Servlet model results
+in 1 <code>Thread</code> per request, because the MDC implementations are based on <code>ThreadLocal</code>.</p>
+</div>
+<div class="paragraph">
+<p>Uh-oh. If you&#8217;ve done some reactive programming before, you&#8217;ll probably start to
+feel a bit uneasy at this point 😅</p>
+</div>
+<div class="paragraph">
+<p>In a reactive programming library like Reactor, <code>ThreadLocal</code> is not ideal because
+execution of an asynchronous pipeline can easily hop threads, and threads can also
+easily be shared between unrelated pipelines.</p>
+</div>
+<div class="paragraph">
+<p>If we implement the restaurant API as a Spring WebFlux application like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@GetMapping("/byPrice")
+public Flux&lt;Restaurant&gt; byPrice(@RequestParam Double maxPrice,
+    @RequestHeader(required = false, name = "X-UserId") String uid) { <i class="conum" data-value="1"></i><b>(1)</b>
+	String apiId = uid == null ? "" : uid;
+	MDC.put("apiID", apiId); <i class="conum" data-value="2"></i><b>(2)</b>
+	return restaurantService.byPrice(maxPrice)
+	                        .doOnNext(r -&gt; LOG.debug("found restaurant {} for ${}", r.getName(), r.getPricePerPerson())); <i class="conum" data-value="3"></i><b>(3)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>We get the user id from the headers</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>We attempt to put it in the MDC&#8230;&#8203;</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>&#8230;&#8203;and log the results</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">We can execute the 2 concurrent requests with <code>HTTPie</code>:</div>
+<div class="content">
+<pre class="highlight"><code>$  http :8080/byPrice maxPrice==12 X-UserId:foo &amp; http :8080/byPrice maxPrice==11 X-UserId:bar</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>But we get the following (disappointing) logs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[reactor-http-nio-6] [bar] - DEBUG apiIdLogger.byPrice - finding restaurants for under $11.0 for %bar
+[reactor-http-nio-7] [foo] - DEBUG apiIdLogger.byPrice - finding restaurants for under $12.0 for %foo
+[byPrice-1] [] - DEBUG apiIdLogger.lambda$byPrice$3 - found restaurant Burger for $11.0
+[byPrice-1] [] - DEBUG apiIdLogger.lambda$byPrice$3 - found restaurant DoMONOs for $10.0
+[byPrice-1] [] - DEBUG apiIdLogger.lambda$byPrice$3 - found restaurant Cheesecake ProxyFactory for $9.5
+[byPrice-1] [] - DEBUG apiIdLogger.lambda$byPrice$3 - found restaurant DoMONOs for $10.0
+[byPrice-1] [] - DEBUG apiIdLogger.lambda$byPrice$3 - found restaurant Cheesecake ProxyFactory for $9.5</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Oh snap!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The MDC was taken into account for the first log statement but not the others 🤔</p>
+</li>
+<li>
+<p>The service seems to offset the work on another thread 😞</p>
+</li>
+<li>
+<p>The work is done on a single thread, different from the one where user ids are logged 💥</p>
+</li>
+<li>
+<p>Worse, <strong>it&#8217;s the same thread for both requests</strong> 💥😱💥</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_solution">The solution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Reactor comes with a <code>Context</code> in which one can put data to be associated with a particular
+<code>Flux</code> rather than a <code>Thread</code>. Maybe we can somehow use this 🤔</p>
+</div>
+<div class="paragraph">
+<p>In reactive terms, log statements are usually considered as something to be
+executed <em>on the side</em> of the pipeline, since it doesn&#8217;t change the sequence&#8217;s
+data. We recommend to isolate these "side effects" in the <code>doOn*</code> family of operators.</p>
+</div>
+<div class="paragraph">
+<p>One such operator is a particularly good candidate for our contextual logging need:
+<code>doOnEach</code> let you consume a <code>Signal</code> object that materialize each reactive events,
+<code>onNext</code> data events and <code>onComplete</code>/<code>onError</code> terminal events alike.</p>
+</div>
+<div class="paragraph">
+<p>What&#8217;s more interesting is that since version <code>3.1.3</code>, it also provides access
+to the current <code>Context</code> 👍 🎉</p>
+</div>
+<div class="paragraph">
+<p>So the idea would be to isolate log statements in <code>doOnEach</code> and write a bit of
+boilerplate code to fill the MDC, do the logging and clear the MDC (we want to be
+good citizens here):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">private static &lt;T&gt; void logOnNext(Signal&lt;T&gt; signal, Consumer&lt;T&gt; logStatement) {
+	if (!signal.isOnNext()) return; <i class="conum" data-value="1"></i><b>(1)</b>
+	Optional&lt;String&gt; apiIDMaybe = signal.getContext().getOrEmpty("apiID"); <i class="conum" data-value="2"></i><b>(2)</b>
+
+	apiIDMaybe.ifPresentOrElse(apiID -&gt; {
+		try (MDC.MDCCloseable closeable = MDC.putCloseable("apiID", apiID)) { <i class="conum" data-value="3"></i><b>(3)</b>
+			logStatement.accept(signal.get()); <i class="conum" data-value="4"></i><b>(4)</b>
+		}
+	}, () -&gt; logStatement.accept(signal.get())); <i class="conum" data-value="4"></i><b>(4)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>We only care to log for onNext events</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>We&#8217;ll extract the interesting value from the Reactor <code>Context</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>If present, we&#8217;ll put it in the MDC and automatically clear it once the line
+below is done</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>We execute the log statement provided as a consumer of the <code>onNext</code> value</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>With that boilerplate logging function, we can rewrite our controller to reactively
+log the request results:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@GetMapping("/byPrice")
+public Flux&lt;Restaurant&gt; byPrice(@RequestParam Double maxPrice, @RequestHeader(required = false, name = "X-UserId") String userId) {
+	String apiId = userId == null ? "" : userId;
+	<i class="conum" data-value="3"></i><b>(3)</b>
+	return restaurantService.byPrice(maxPrice))
+	           .doOnEach(sig -&gt; logOnNext(sig, r -&gt; LOG.debug("found restaurant {} for ${}", r.getName(), r.getPricePerPerson()))) <i class="conum" data-value="2"></i><b>(2)</b>
+	           .subscriberContext(Context.of("apiID", apiId)); <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>subscriberContext</code> method is used at the bottom of the chain to enrich the <code>Context</code> (here with <code>apiId</code>)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Every operator above it will see the <code>Context</code>, including our boilerplate logging <code>doOnEach</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>⚠️ something is missing here.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The missing part above is the initial log. We could put the value in the MDC and
+then call the <code>LOG</code> directly like before, but let&#8217;s be reactive all the way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@GetMapping("/byPrice")
+public Flux&lt;Restaurant&gt; byPrice(@RequestParam Double maxPrice, @RequestHeader(required = false, name = "X-UserId") String userId) {
+	String apiId = userId == null ? "" : userId;
+	return Mono.just(String.format("finding restaurants for under $%.2f for %s", maxPrice, apiId)) <i class="conum" data-value="1"></i><b>(1)</b>
+	           .doOnEach(sig -&gt; logOnNext(sig, msg -&gt; LOG.debug(msg))) <i class="conum" data-value="2"></i><b>(2)</b>
+	           .thenMany(restaurantService.byPrice(maxPrice)) <i class="conum" data-value="3"></i><b>(3)</b>
+	           .doOnEach(sig -&gt; logOnNext(sig, r -&gt; LOG.debug("found restaurant {} for ${}", r.getName(), r.getPricePerPerson())))
+	           .subscriberContext(Context.of("apiID", apiId));
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Generate an initial message as the starting point</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Use our boilerplate logging method (<code>doOnNext</code> sees our prepared message as the value to log)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><em>then</em> replace and continue the sequence with the <em>Many</em> elements from the <code>restaurantService</code> call using <code>thenMany</code></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>And <em>voilà</em> the result:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[reactor-http-nio-6] [bar] - DEBUG apiIdLogger.lambda$byPrice$3 - finding restaurants for under $11.00 for bar
+[reactor-http-nio-7] [foo] - DEBUG apiIdLogger.lambda$byPrice$3 - finding restaurants for under $12.00 for foo
+[byPrice-1] [foo] - DEBUG apiIdLogger.lambda$byPrice$5 - found restaurant Burger for $11.0
+[byPrice-1] [bar] - DEBUG apiIdLogger.lambda$byPrice$5 - found restaurant DoMONOs for $10.0
+[byPrice-1] [bar] - DEBUG apiIdLogger.lambda$byPrice$5 - found restaurant Cheesecake ProxyFactory for $9.5
+[byPrice-1] [foo] - DEBUG apiIdLogger.lambda$byPrice$5 - found restaurant DoMONOs for $10.0
+[byPrice-1] [foo] - DEBUG apiIdLogger.lambda$byPrice$5 - found restaurant Cheesecake ProxyFactory for $9.5</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Results from two requests interleaved in logs from the same <code>Thread</code>, but we can
+still identify who got what. <strong>WIN</strong> 😁</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnote_1">
+<a href="#_footnoteref_1">1</a>. <code>HTTPie</code> is curl for humans 👍 <a href="https://httpie.org" class="bare">https://httpie.org</a>
+</div>
+</div>
+    </div>
+  </div>
+
+</article>
+
+
+
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+    <li class="previous"><a href="https://simonbasle.github.io/2017/11/whats-next-after-java-9/"><span
+      aria-hidden="true">&larr;</span> Whats Next After Java 9</a></li>
+    
+
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Simon Baslé &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
