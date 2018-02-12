@@ -264,6 +264,9 @@ a reactive application.</p>
 <div class="paragraph">
 <p></p>
 </div>
+<div class="paragraph">
+<p><em>⚠️ <strong>update</strong>: see the bottom note for a bug with doOnEach to be aware of in <code>3.1.3.RELEASE</code> and below</em></p>
+</div>
 <div class="sect1">
 <h2 id="_the_need">The need</h2>
 <div class="sectionbody">
@@ -541,6 +544,18 @@ public Flux&lt;Restaurant&gt; byPrice(@RequestParam Double maxPrice, @RequestHea
 <div class="paragraph">
 <p>Results from two requests interleaved in logs from the same <code>Thread</code>, but we can
 still identify who got what. <strong>WIN</strong> 😁</p>
+</div>
+<div class="paragraph">
+<div class="alert alert-warning">
+  <div class="paragraph">
+<p>Following the writing of this post, an issue with <code>doOnEach</code> was discovered that leads to the
+operator being bypassed in some configurations (asynchronous fusion). This will be fixed in
+<code>3.1.4.RELEASE</code>, and in the meantime you can put a <code>.hide()</code> just <strong>before</strong> the <code>.doOnEach(&#8230;&#8203;)</code>.
+See <a href="https://github.com/reactor/reactor-core/issues/1056" class="bare">https://github.com/reactor/reactor-core/issues/1056</a></p>
+</div>
+
+</div>
+
 </div>
 </div>
 </div>
