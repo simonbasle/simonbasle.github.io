@@ -163,8 +163,10 @@
 
   <span class="article-date">
     
+        Last updated on
+    
     <time datetime="2018-02-03 15:34:30 &#43;0100 CET" itemprop="datePublished">
-      2018-02-03
+      2018-02-27
     </time>
   </span>
 
@@ -424,20 +426,23 @@ to the current <code>Context</code> 👍 🎉</p>
 </div>
 <div class="paragraph">
 <p>So the idea would be to isolate log statements in <code>doOnEach</code> and write a bit of
-boilerplate code to fill the MDC, do the logging and clear the MDC (we want to be
+boilerplate code <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnote_2" title="View footnote.">2</a>]</sup>
+to fill the MDC, do the logging and clear the MDC (we want to be
 good citizens here):</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">private static &lt;T&gt; void logOnNext(Signal&lt;T&gt; signal, Consumer&lt;T&gt; logStatement) {
-	if (!signal.isOnNext()) return; <i class="conum" data-value="1"></i><b>(1)</b>
-	Optional&lt;String&gt; apiIDMaybe = signal.getContext().getOrEmpty("apiID"); <i class="conum" data-value="2"></i><b>(2)</b>
+<pre class="highlight"><code class="language-java" data-lang="java">private static &lt;T&gt; Consumer&lt;Signal&lt;T&gt;&gt; logOnNext(Consumer&lt;T&gt; logStatement) {
+  return signal -&gt; {
+	  if (!signal.isOnNext()) return; <i class="conum" data-value="1"></i><b>(1)</b>
+	    Optional&lt;String&gt; apiIDMaybe = signal.getContext().getOrEmpty("apiID"); <i class="conum" data-value="2"></i><b>(2)</b>
 
-	apiIDMaybe.ifPresentOrElse(apiID -&gt; {
-		try (MDC.MDCCloseable closeable = MDC.putCloseable("apiID", apiID)) { <i class="conum" data-value="3"></i><b>(3)</b>
-			logStatement.accept(signal.get()); <i class="conum" data-value="4"></i><b>(4)</b>
-		}
-	}, () -&gt; logStatement.accept(signal.get())); <i class="conum" data-value="4"></i><b>(4)</b>
+	    apiIDMaybe.ifPresentOrElse(apiID -&gt; {
+		  try (MDC.MDCCloseable closeable = MDC.putCloseable("apiID", apiID)) { <i class="conum" data-value="3"></i><b>(3)</b>
+			  logStatement.accept(signal.get()); <i class="conum" data-value="4"></i><b>(4)</b>
+		  }
+	  }, () -&gt; logStatement.accept(signal.get())); <i class="conum" data-value="4"></i><b>(4)</b>
+  }
 }</code></pre>
 </div>
 </div>
@@ -473,7 +478,7 @@ public Flux&lt;Restaurant&gt; byPrice(@RequestParam Double maxPrice, @RequestHea
 	String apiId = userId == null ? "" : userId;
 	<i class="conum" data-value="3"></i><b>(3)</b>
 	return restaurantService.byPrice(maxPrice))
-	           .doOnEach(sig -&gt; logOnNext(sig, r -&gt; LOG.debug("found restaurant {} for ${}", r.getName(), r.getPricePerPerson()))) <i class="conum" data-value="2"></i><b>(2)</b>
+	           .doOnEach(logOnNext(sig, r -&gt; LOG.debug("found restaurant {} for ${}", r.getName(), r.getPricePerPerson()))) <i class="conum" data-value="2"></i><b>(2)</b>
 	           .subscriberContext(Context.of("apiID", apiId)); <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
@@ -504,9 +509,9 @@ then call the <code>LOG</code> directly like before, but let&#8217;s be reactive
 public Flux&lt;Restaurant&gt; byPrice(@RequestParam Double maxPrice, @RequestHeader(required = false, name = "X-UserId") String userId) {
 	String apiId = userId == null ? "" : userId;
 	return Mono.just(String.format("finding restaurants for under $%.2f for %s", maxPrice, apiId)) <i class="conum" data-value="1"></i><b>(1)</b>
-	           .doOnEach(sig -&gt; logOnNext(sig, msg -&gt; LOG.debug(msg))) <i class="conum" data-value="2"></i><b>(2)</b>
+	           .doOnEach(logOnNext(sig, msg -&gt; LOG.debug(msg))) <i class="conum" data-value="2"></i><b>(2)</b>
 	           .thenMany(restaurantService.byPrice(maxPrice)) <i class="conum" data-value="3"></i><b>(3)</b>
-	           .doOnEach(sig -&gt; logOnNext(sig, r -&gt; LOG.debug("found restaurant {} for ${}", r.getName(), r.getPricePerPerson())))
+	           .doOnEach(logOnNext(sig, r -&gt; LOG.debug("found restaurant {} for ${}", r.getName(), r.getPricePerPerson())))
 	           .subscriberContext(Context.of("apiID", apiId));
 }</code></pre>
 </div>
@@ -563,6 +568,9 @@ See <a href="https://github.com/reactor/reactor-core/issues/1056" class="bare">h
 <hr>
 <div class="footnote" id="_footnote_1">
 <a href="#_footnoteref_1">1</a>. <code>HTTPie</code> is curl for humans 👍 <a href="https://httpie.org" class="bare">https://httpie.org</a>
+</div>
+<div class="footnote" id="_footnote_2">
+<a href="#_footnoteref_2">2</a>. Credit to Taylor Gautier on the Reactor Gitter channel for the improved helper signature 👍
 </div>
 </div>
     </div>

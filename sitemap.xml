@@ -6,7 +6,7 @@
     <url>
     
       <loc>https://simonbasle.github.io/2018/02/contextual-logging-with-reactor-context-and-mdc/</loc>
-      <lastmod>2018-02-03T15:34:30+01:00</lastmod>
+      <lastmod>2018-02-27T19:30:00+01:00</lastmod>
     </url>
     
   
@@ -133,7 +133,7 @@
     <url>
     
       <loc>https://simonbasle.github.io/tags/context/</loc>
-      <lastmod>2018-02-03T15:34:30+01:00</lastmod>
+      <lastmod>2018-02-27T19:30:00+01:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -223,7 +223,7 @@
     <url>
     
       <loc>https://simonbasle.github.io/tags/logging/</loc>
-      <lastmod>2018-02-03T15:34:30+01:00</lastmod>
+      <lastmod>2018-02-27T19:30:00+01:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -233,7 +233,7 @@
     <url>
     
       <loc>https://simonbasle.github.io/tags/mdc/</loc>
-      <lastmod>2018-02-03T15:34:30+01:00</lastmod>
+      <lastmod>2018-02-27T19:30:00+01:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -261,8 +261,8 @@
     
     <url>
     
-      <loc>https://simonbasle.github.io/categories/reactor/</loc>
-      <lastmod>2018-02-03T15:34:30+01:00</lastmod>
+      <loc>https://simonbasle.github.io/tags/reactor/</loc>
+      <lastmod>2018-02-27T19:30:00+01:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -271,8 +271,8 @@
     
     <url>
     
-      <loc>https://simonbasle.github.io/tags/reactor/</loc>
-      <lastmod>2018-02-03T15:34:30+01:00</lastmod>
+      <loc>https://simonbasle.github.io/categories/reactor/</loc>
+      <lastmod>2018-02-27T19:30:00+01:00</lastmod>
       <priority>0</priority>
     </url>
     
