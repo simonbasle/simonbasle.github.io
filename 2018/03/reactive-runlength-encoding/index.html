@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.29" />
+  <meta name="author" content="Simon Baslé">
+  <meta name="description" content="Software Engineer">
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+
+
+  
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat%3a400%2c700%7cRoboto%3a400%2c400italic%2c700%7cRoboto%2bMono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-109134521-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  <link rel="alternate" href="" type="application/rss+xml" title="Simon&#39;s Blog">
+  <link rel="feed" href="" type="application/rss+xml" title="Simon&#39;s Blog">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://simonbasle.github.io/2018/03/reactive-runlength-encoding/">
+
+  
+
+  <title>Reactive RunLength Encoding | Simon&#39;s Blog</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Simon&#39;s Blog</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#talks_upcoming">
+            
+            <span>Talks</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>About</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  <img src="/img/headers/reactor-runLengthEncoding.png" class="article-banner" itemprop="image">
+  <span class="article-header-caption">See what I did there? <a href="https://pixabay.com/photo-981880/" title="Running Dog and Sheeps CC-0 via PixaBay" target="_blank">🔗</a></span>
+</div>
+
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Reactive RunLength Encoding</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-03-05 19:00:00 &#43;0100 CET" itemprop="datePublished">
+      2018-03-05
+    </time>
+  </span>
+
+  
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/reactor-recipes">reactor recipes</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/reactive">reactive</a
+    >, 
+    
+    <a href="/tags/reactor">reactor</a
+    >, 
+    
+    <a href="/tags/algorithm">algorithm</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Reactive%20RunLength%20Encoding&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2018%2f03%2freactive-runlength-encoding%2f"
+         target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsimonbasle.github.io%2f2018%2f03%2freactive-runlength-encoding%2f"
+         target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsimonbasle.github.io%2f2018%2f03%2freactive-runlength-encoding%2f&amp;title=Reactive%20RunLength%20Encoding"
+         target="_blank">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsimonbasle.github.io%2f2018%2f03%2freactive-runlength-encoding%2f&amp;title=Reactive%20RunLength%20Encoding"
+         target="_blank">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Reactive%20RunLength%20Encoding&amp;body=https%3a%2f%2fsimonbasle.github.io%2f2018%2f03%2freactive-runlength-encoding%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      <p>In this post, we&rsquo;ll look at a reactive solution for the <code>Run Length Encoding</code> problem, which is summarized (on <a href="https://en.wikipedia.org/wiki/Run-length_encoding" target="_blank">Wikipedia</a>) as:</p>
+
+<blockquote>
+<p>A form of lossless data compression in which <em>runs</em> of data (that is, sequences in which the same data value occurs in many consecutive data elements) are stored as a single data value and count, rather than as the original run.</p>
+</blockquote>
+
+<p>The challenge here is to perform it in a Reactive way using Reactor operators. Let&rsquo;s jump in!</p>
+
+<p></p>
+
+<p>For the reactive version, we&rsquo;ll assume that our input is simply a <code>Flux&lt;T&gt;</code> in which some elements can be repeated consecutively.
+The desired output could be either:</p>
+
+<ul>
+<li>a <code>String</code> represented the full encoded sequence</li>
+</ul>
+
+<p>or</p>
+
+<ul>
+<li>a <code>Flux&lt;Tuple2&lt;T, Long&gt;&gt;</code> representing each encoded <em>run</em></li>
+</ul>
+
+<p>Since the later can easily enough be transformed to a single <code>String</code>, using <code>reduce</code>, that&rsquo;s the output we&rsquo;ll go for.</p>
+
+<h1 id="a-first-candidate">A first candidate?</h1>
+
+<p>Ok so where to start? Maybe there&rsquo;s an operator that directly fits the bill? Reading the reference documentation&rsquo;s &ldquo;Which Operator Do I Need?&rdquo; <a href="http://projectreactor.io/docs/core/release/reference/docs/index.html#which-operator" target="_blank">appendix</a>,
+one close candidate jumps out: <code>distinctUntilChanged</code>. Its <a href="http://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#distinctUntilChanged--" target="_blank">javadoc</a> reads:</p>
+
+<blockquote>
+<p>Filter out subsequent repetitions of an element (that is, if they arrive right after one another).</p>
+
+<p><img src="https://raw.githubusercontent.com/reactor/reactor-core/v3.1.3.RELEASE/src/docs/marble/distinctuntilchanged.png" alt="" /></p>
+</blockquote>
+
+<p>The only problem with that operator is that it <em>eliminates</em> the duplicates, giving us no way of counting how many there were.</p>
+
+<h1 id="composition-to-the-rescue">Composition to the rescue!</h1>
+
+<p>So if there&rsquo;s no operator that directly solves our use case, the next step should always be to try to find a <em>combination</em> of operators that do.
+Maybe we need to approach the problem from another angle&hellip;</p>
+
+<p>So we need to somehow find <em>runs</em>, sequences of consecutive equal elements within the main sequence.
+That sequence-within-a-sequence aspect is interesting: it sounds like we might need to split our original <code>Flux&lt;T&gt;</code> sequence into something that represents the <em>runs</em>.</p>
+
+<p>Two classes of operators can split a Flux in that fashion: operators that <strong>buffer</strong> and operator that produce <strong>windows</strong>.</p>
+
+<p>The first one produces <code>Flux&lt;List&lt;T&gt;&gt;</code>, which sounds like a good fit at first: if we get a <code>List&lt;T&gt;</code> for each run, we&rsquo;ll be able to know its size.
+But after a second look it is suboptimal: the <code>List</code> would contain only the same elements, which is redundant.
+Furthermore, it would be keeping all equal elements in memory until a different one comes in.
+If the source is made up of 1M similar elements, we&rsquo;ll keep them all in memory 😟</p>
+
+<p>The second class of operators is <code>window</code>, which produces a <code>Flux&lt;Flux&lt;T&gt;&gt;</code>.
+The inner <code>Flux&lt;T&gt;</code> (or <em>windows</em>) can be consumed progressively (or rather <em>reactively</em> 😏), and we can apply any Reactor operator to it.
+If we could isolate <em>runs</em> as <strong>windows</strong>, we could <code>reduce</code> the windows to a <code>Tuple2</code> that contains the duplicate element and the count.</p>
+
+<p>That sounds like a plan!
+But let&rsquo;s come up with the <code>reduce</code> function that will produce the <code>Tuple2</code> first.</p>
+
+<p>One caveat is that <code>Tuple2</code> doesn&rsquo;t allow <code>null</code> (like the majority of Reactor types).
+What we can do is require a &ldquo;<code>neutralElement</code>&rdquo; value that can be used as the seed as a placeholder for the actual <code>element</code> that is being encoded in that <em>run</em>.
+As soon as the first value is emitted in the window, we&rsquo;ll replace that placeholder by it and start counting:</p>
+
+<pre><code class="language-java">Flux&lt;T&gt; window = null; //To Be Determined
+window.reduce(
+  //originally no meaningful value in state
+  //neutralElement needed because null not supported
+  //maybe a nullable pair custom class would make sense to avoid that
+  Tuples.of(neutralElement, 0),
+  //neutralElement is soon replaced by the meaningful value,
+  //and we increment the associated count
+  (state, next) -&gt; Tuples.of(next, state.getT2() + 1))
+)
+</code></pre>
+
+<h1 id="composing-window-and-distinctuntilchanged-together">Composing <code>window</code> and <code>distinctUntilChanged</code> together</h1>
+
+<p>Here comes the hard part: how to split the sequence into <em>run</em> windows?</p>
+
+<p><code>distinctUntilChanged</code> that we found earlier can help us: we could use it as the trigger for opening new windows, using the <code>window(Publisher)</code> variant.</p>
+
+<p>This variant opens a new window each time the given <code>Publisher</code> emits an element (and also closes the previous window).</p>
+
+<p>There is one caveat still: Reactor <code>Flux</code> can be &ldquo;cold&rdquo; ❄️</p>
+
+<p>A cold <code>Publisher</code> is a Publisher that restarts emitting the whole sequence anew for each <code>Subscriber</code>.
+The problem of combining <code>window</code> and <code>distinctUntilChanged</code> is that our window opening <code>Publisher</code> needs to be the same as the <strong>source</strong> of the <code>window</code>, which means 2 subscriptions 😰</p>
+
+<p>So in order for this to work, we need to be able to reuse the source as the <code>window</code> trigger. A <code>ConnectableFlux</code> is probably what we need: <code>publish().refCount(2)</code> is a good candidate.</p>
+
+<p>Here is a generic method that achieves that:</p>
+
+<pre><code class="language-java">public &lt;T extends Comparable&lt;T&gt;&gt; Flux&lt;Flux&lt;T&gt;&gt; partitionBySameValue(Flux&lt;T&gt; source) {
+  //in order to make sure the distinctUntilChanged criteria can be applied
+  //using the same data that we emit in the windows, we need to share...
+  Flux&lt;T&gt; windowSource = source.publish()
+                         //...between 2 subscribers
+                         .refCount(2);
+
+  //partition into windows that are opened whenever the current source element
+  //differs from the previous source element.
+  //windows naturally close when a new window opens.
+  return windowSource.window(windowSource.distinctUntilChanged());
+}
+</code></pre>
+
+<p>And now it is just a matter of processing the <em>run</em> windows using the <code>reduce</code> method we came up with earlier:</p>
+
+<pre><code class="language-java">public &lt;T&gt; Flux&lt;Tuple2&lt;T, Integer&gt;&gt; runLength(Flux&lt;Flux&lt;T&gt;&gt; partitions,
+    T neutralElement) {
+  return partitions
+    .flatMap(window -&gt; window
+        .reduce(
+            Tuples.of(neutralElement, 0),
+            (state, next) -&gt; Tuples.of(next, state.getT2() + 1)
+        )
+    )
+    //caveat: window produces an empty first window
+    .filter(t -&gt; t.getT2() &gt; 0);
+}
+</code></pre>
+
+<p>(note the <code>filter</code> that we add due to the operation producing a first window that is empty)</p>
+
+<h1 id="testing-the-solution">Testing the solution</h1>
+
+<p>Let&rsquo;s create one last method, the one that we discussed at the beginning of this blog, to turn the <code>runLength</code> sequence into an encoded <code>String</code>:</p>
+
+<pre><code class="language-java">//just reduce the flux of runLength tuples to a single string representation
+public &lt;T&gt; Mono&lt;String&gt; string(Flux&lt;Tuple2&lt;T, Integer&gt;&gt; runLength) {
+    return runLength.reduce(&quot;&quot;, (s, t) -&gt; s + &quot;,&quot; + t.getT1() + &quot;-&gt;&quot; + t.getT2())
+                    .map(encoded -&gt; encoded.replaceFirst(&quot;,&quot;, &quot;&quot;));
+}
+</code></pre>
+
+<p>We chose the <code>VALUE-&gt;COUNT</code> comma-separated representation for the purpose of demonstrating this without any ambiguity as to the boundaries of each VALUE and each <em>run</em> representation.</p>
+
+<p>And now we have a <strong>generic</strong> and <strong>reactive</strong> run-length encoding method 🎉</p>
+
+<p>As demonstrated by these two tests:</p>
+
+<pre><code class="language-java">@Test
+public void runLengthEncodingIntegers() {
+  Flux&lt;Integer&gt; source = Flux.just(1, 1, 1, 2, 3, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+
+  Flux&lt;Tuple2&lt;Integer, Integer&gt;&gt; runLength = runLength(partitionBySameValue(source), 0);
+
+  StepVerifier.create(runLength.as(this::string))
+              .expectNext(&quot;1-&gt;3,2-&gt;1,3-&gt;1,2-&gt;2,1-&gt;10&quot;)
+              .verifyComplete();
+}
+
+@Test
+public void runLengthEncodingStrings() {
+  Flux&lt;String&gt; source = Flux.just(&quot;OH&quot;, &quot;OH&quot;, &quot;OH&quot;, &quot;HEY&quot;, &quot;Yo&quot;, &quot;Yo&quot;);
+
+  Flux&lt;Tuple2&lt;String, Integer&gt;&gt; runLength = runLength(partitionBySameValue(source), &quot;&quot;);
+
+  StepVerifier.create(runLength.as(this::string))
+              .expectNext(&quot;OH-&gt;3,HEY-&gt;1,Yo-&gt;2&quot;)
+              .verifyComplete();
+}
+</code></pre>
+
+<p><img src="https://media.giphy.com/media/BxWTWalKTUAdq/giphy.gif" alt="" /></p>
+    </div>
+  </div>
+
+</article>
+
+
+
+
+<div class="container">
+  <nav>
+  <ul class="pager">
+    
+    <li class="previous"><a href="https://simonbasle.github.io/2018/02/contextual-logging-with-reactor-context-and-mdc/"><span
+      aria-hidden="true">&larr;</span> Contextual Logging with Reactor Context and MDC</a></li>
+    
+
+    
+  </ul>
+</nav>
+
+</div>
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Simon Baslé &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
