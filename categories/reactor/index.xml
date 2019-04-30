@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reactor on Simon&#39;s Blog</title>
+    <link>https://simonbasle.github.io/categories/reactor/</link>
+    <description>Recent content in Reactor on Simon&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Simon Baslé</copyright>
+    <lastBuildDate>Sat, 03 Feb 2018 15:34:30 +0100</lastBuildDate>
+    
+	<atom:link href="https://simonbasle.github.io/categories/reactor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Contextual Logging with Reactor Context and MDC</title>
+      <link>https://simonbasle.github.io/2018/02/contextual-logging-with-reactor-context-and-mdc/</link>
+      <pubDate>Sat, 03 Feb 2018 15:34:30 +0100</pubDate>
+      
+      <guid>https://simonbasle.github.io/2018/02/contextual-logging-with-reactor-context-and-mdc/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;In this post, we&amp;#8217;ll look at how to combine the MDC feature of current logging framework
+with &lt;a href=&#34;https://projectreactor.io/&#34;&gt;Reactor&lt;/a&gt;&#39;s own &lt;code&gt;Context&lt;/code&gt;, in order to make contextualized logging possible within
+a reactive application.&lt;/p&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>File Reading in Reactor</title>
+      <link>https://simonbasle.github.io/2017/10/file-reading-in-reactor/</link>
+      <pubDate>Thu, 26 Oct 2017 12:50:00 +0200</pubDate>
+      
+      <guid>https://simonbasle.github.io/2017/10/file-reading-in-reactor/</guid>
+      <description>&lt;p&gt;File reading, line by line in Java&amp;hellip; It&amp;rsquo;s never been a breeze, and until Java 8
+the only high level option you had was to read the lines into a &lt;code&gt;List&amp;lt;String&amp;gt;&lt;/code&gt;
+😓&lt;/p&gt;
+
+&lt;p&gt;Then Java 8 came along, with its &lt;code&gt;Stream&lt;/code&gt; interface, and a &lt;code&gt;Files.lines(Path)&lt;/code&gt;
+method that returns a &lt;code&gt;Stream&amp;lt;String&amp;gt;&lt;/code&gt;. Turns out, this stream will &lt;strong&gt;lazily&lt;/strong&gt;
+read the lines from the file, without ever having to hold the whole content of
+the file in memory 😍&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see how we can use that with Reactor!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

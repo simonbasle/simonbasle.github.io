@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Future of Java on Simon&#39;s Blog</title>
+    <link>https://simonbasle.github.io/tags/future-of-java/</link>
+    <description>Recent content in Future of Java on Simon&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Simon Baslé</copyright>
+    <lastBuildDate>Thu, 02 Nov 2017 15:48:44 +0100</lastBuildDate>
+    
+	<atom:link href="https://simonbasle.github.io/tags/future-of-java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Whats Next After Java 9</title>
+      <link>https://simonbasle.github.io/2017/11/whats-next-after-java-9/</link>
+      <pubDate>Thu, 02 Nov 2017 15:48:44 +0100</pubDate>
+      
+      <guid>https://simonbasle.github.io/2017/11/whats-next-after-java-9/</guid>
+      <description>&lt;p&gt;With Java 9 out the door, you might wonder what the future holds for Java. I do
+too, so I had a quick look at current JEPs and Projects candidates to see what
+is looming ahead (you&amp;rsquo;ll get this joke in a second 😁).&lt;/p&gt;
+
+&lt;p&gt;In this article I will glance at the ones that stood out to me. Keep in mind
+most of these are not finalized, some are even just exploratory&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Without further ceremony, let&amp;rsquo;s dive in!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Simon&#39;s Blog</title>
+    <link>https://simonbasle.github.io/tags/git/</link>
+    <description>Recent content in Git on Simon&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Simon Baslé</copyright>
+    <lastBuildDate>Mon, 09 Oct 2017 11:22:39 +0200</lastBuildDate>
+    
+	<atom:link href="https://simonbasle.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git Identities and Ssh</title>
+      <link>https://simonbasle.github.io/2017/10/git-identities-and-ssh/</link>
+      <pubDate>Mon, 09 Oct 2017 11:22:39 +0200</pubDate>
+      
+      <guid>https://simonbasle.github.io/2017/10/git-identities-and-ssh/</guid>
+      <description>&lt;p&gt;If you sometimes work on both personal and professional projects that are hosted
+on GitHub, chances are that you&amp;rsquo;d like to separate identities. Maybe you have
+several accounts, maybe it&amp;rsquo;s just a matter of making the commits use different
+emails.&lt;/p&gt;
+
+&lt;p&gt;In this post, we&amp;rsquo;ll see how to manage such separate identities, at the SSH level
+and the Git level.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

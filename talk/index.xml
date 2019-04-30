@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recent &amp; Upcoming Talks on Simon&#39;s Blog</title>
+    <link>https://simonbasle.github.io/talk/</link>
+    <description>Recent content in Recent &amp; Upcoming Talks on Simon&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Simon Baslé</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://simonbasle.github.io/talk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Talking at SpringOne Platform 2017</title>
+      <link>https://simonbasle.github.io/talk/springone2017/</link>
+      <pubDate>Sun, 03 Dec 2017 00:00:00 +0100</pubDate>
+      
+      <guid>https://simonbasle.github.io/talk/springone2017/</guid>
+      <description>I&amp;rsquo;ll be speaking at SpringOne in San Francisco this December, about Reactor.</description>
+    </item>
+    
+    <item>
+      <title>Talking at JavaDay 2017</title>
+      <link>https://simonbasle.github.io/talk/javadays17/</link>
+      <pubDate>Sat, 04 Nov 2017 12:07:29 +0200</pubDate>
+      
+      <guid>https://simonbasle.github.io/talk/javadays17/</guid>
+      <description>I&amp;rsquo;ll be speaking at JavaDay in Kiev this November, about Reactor.</description>
+    </item>
+    
+    <item>
+      <title>How to Become a Good Open Source Contributor in 1 Hour</title>
+      <link>https://simonbasle.github.io/talk/good-contributor/</link>
+      <pubDate>Fri, 21 Apr 2017 00:00:00 +0200</pubDate>
+      
+      <guid>https://simonbasle.github.io/talk/good-contributor/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Reactor 3, a Reactive Foundation for the JVM</title>
+      <link>https://simonbasle.github.io/talk/reactor3/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://simonbasle.github.io/talk/reactor3/</guid>
+      <description> </description>
+    </item>
+    
+  </channel>
+</rss>

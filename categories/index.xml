@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Simon&#39;s Blog</title>
+    <link>https://simonbasle.github.io/categories/</link>
+    <description>Recent content in Categories on Simon&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Simon Baslé</copyright>
+    
+	<atom:link href="https://simonbasle.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gadgets</title>
+      <link>https://simonbasle.github.io/categories/gadgets/</link>
+      <pubDate>Fri, 06 Oct 2017 17:31:42 +0200</pubDate>
+      
+      <guid>https://simonbasle.github.io/categories/gadgets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://simonbasle.github.io/categories/java/</link>
+      <pubDate>Thu, 02 Nov 2017 15:48:44 +0100</pubDate>
+      
+      <guid>https://simonbasle.github.io/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://simonbasle.github.io/categories/linux/</link>
+      <pubDate>Tue, 30 Apr 2019 17:38:49 +0200</pubDate>
+      
+      <guid>https://simonbasle.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reactor</title>
+      <link>https://simonbasle.github.io/categories/reactor/</link>
+      <pubDate>Sat, 03 Feb 2018 15:34:30 +0100</pubDate>
+      
+      <guid>https://simonbasle.github.io/categories/reactor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reactor Recipes</title>
+      <link>https://simonbasle.github.io/categories/reactor-recipes/</link>
+      <pubDate>Mon, 05 Mar 2018 19:00:00 +0100</pubDate>
+      
+      <guid>https://simonbasle.github.io/categories/reactor-recipes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>This Blog</title>
+      <link>https://simonbasle.github.io/categories/this-blog/</link>
+      <pubDate>Mon, 02 Oct 2017 12:30:26 +0200</pubDate>
+      
+      <guid>https://simonbasle.github.io/categories/this-blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tools</title>
+      <link>https://simonbasle.github.io/categories/tools/</link>
+      <pubDate>Mon, 09 Oct 2017 11:22:39 +0200</pubDate>
+      
+      <guid>https://simonbasle.github.io/categories/tools/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

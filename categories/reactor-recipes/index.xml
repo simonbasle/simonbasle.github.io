@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reactor Recipes on Simon&#39;s Blog</title>
+    <link>https://simonbasle.github.io/categories/reactor-recipes/</link>
+    <description>Recent content in Reactor Recipes on Simon&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Simon Baslé</copyright>
+    <lastBuildDate>Mon, 05 Mar 2018 19:00:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://simonbasle.github.io/categories/reactor-recipes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reactive RunLength Encoding</title>
+      <link>https://simonbasle.github.io/2018/03/reactive-runlength-encoding/</link>
+      <pubDate>Mon, 05 Mar 2018 19:00:00 +0100</pubDate>
+      
+      <guid>https://simonbasle.github.io/2018/03/reactive-runlength-encoding/</guid>
+      <description>&lt;p&gt;In this post, we&amp;rsquo;ll look at a reactive solution for the &lt;code&gt;Run Length Encoding&lt;/code&gt; problem, which is summarized (on &lt;a href=&#34;https://en.wikipedia.org/wiki/Run-length_encoding&#34; target=&#34;_blank&#34;&gt;Wikipedia&lt;/a&gt;) as:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A form of lossless data compression in which &lt;em&gt;runs&lt;/em&gt; of data (that is, sequences in which the same data value occurs in many consecutive data elements) are stored as a single data value and count, rather than as the original run.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The challenge here is to perform it in a Reactive way using Reactor operators. Let&amp;rsquo;s jump in!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://simonbasle.github.io/2018/03/reactive-runlength-encoding/#preventing-errors-cutting-the-last-run-short&#34;&gt;update 2018-03-13&lt;/a&gt;: Found a few shortcomings of the first implementation and added two new sections that present alternatives.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

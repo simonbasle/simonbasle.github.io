@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.29" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <meta name="author" content="Simon Baslé">
   <meta name="description" content="Software Engineer">
 
@@ -197,6 +197,110 @@
       
           
       
+          
+      
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <a href="https://simonbasle.github.io/2019/04/linux-where-has-my-space-gone/">
+    <img src="/img/headers/detectivePikachu.png" class="article-banner" itemprop="image">
+  </a>
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://simonbasle.github.io/2019/04/linux-where-has-my-space-gone/" itemprop="url">Linux, Where Has my Space Gone?</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-04-30 17:38:49 &#43;0200 CEST" itemprop="datePublished">
+      2019-04-30
+    </time>
+  </span>
+
+  
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/linux">Linux</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="/tags/btrfs">btrfs</a
+    >, 
+    
+    <a href="/tags/df">df</a
+    >, 
+    
+    <a href="/tags/du">du</a
+    >, 
+    
+    <a href="/tags/disk-full">disk full</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    <p>Recently, my Raspberry Pi was complaining that the disk was full. Which was strange because I just recently removed a bunch of files from there, yet <code>df -h</code> was reporting 99% usage. But wait, <code>du -h --summarize</code> was only reporting a couple gigs used instead of the whole 14Gb&hellip;
+What gives?</p>
+    
+  </div>
+  <p class="read-more">
+    <a href="https://simonbasle.github.io/2019/04/linux-where-has-my-space-gone/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
 
       
       
@@ -277,8 +381,6 @@
 <p>The challenge here is to perform it in a Reactive way using Reactor operators. Let&rsquo;s jump in!</p>
 
 <p><em><a href="/2018/03/reactive-runlength-encoding/#preventing-errors-cutting-the-last-run-short">update 2018-03-13</a>: Found a few shortcomings of the first implementation and added two new sections that present alternatives.</em></p>
-
-<p></p>
     
   </div>
   <p class="read-more">
@@ -483,8 +585,6 @@ is looming ahead (you&rsquo;ll get this joke in a second 😁).</p>
 most of these are not finalized, some are even just exploratory&hellip;</p>
 
 <p>Without further ceremony, let&rsquo;s dive in!</p>
-
-<p></p>
     
   </div>
   <p class="read-more">
@@ -587,123 +687,10 @@ read the lines from the file, without ever having to hold the whole content of
 the file in memory 😍</p>
 
 <p>Let&rsquo;s see how we can use that with Reactor!</p>
-
-<p></p>
     
   </div>
   <p class="read-more">
     <a href="https://simonbasle.github.io/2017/10/file-reading-in-reactor/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <a href="https://simonbasle.github.io/2017/10/git-identities-and-ssh/">
-    <img src="/img/headers/git-identities-and-ssh.png" class="article-banner" itemprop="image">
-  </a>
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://simonbasle.github.io/2017/10/git-identities-and-ssh/" itemprop="url">Git Identities and Ssh</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2017-10-09 11:22:39 &#43;0200 CEST" itemprop="datePublished">
-      2017-10-09
-    </time>
-  </span>
-
-  
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/tools">Tools</a
-    >
-    
-  </span>
-  
-  
-
-  
-  
-  
-  <span class="article-tags">
-    <i class="fa fa-tags"></i>
-    
-    <a href="/tags/git">git</a
-    >, 
-    
-    <a href="/tags/identities">identities</a
-    >, 
-    
-    <a href="/tags/ssh">ssh</a
-    >, 
-    
-    <a href="/tags/config">config</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    <p>If you sometimes work on both personal and professional projects that are hosted
-on GitHub, chances are that you&rsquo;d like to separate identities. Maybe you have
-several accounts, maybe it&rsquo;s just a matter of making the commits use different
-emails.</p>
-
-<p>In this post, we&rsquo;ll see how to manage such separate identities, at the SSH level
-and the Git level.</p>
-
-<p></p>
-    
-  </div>
-  <p class="read-more">
-    <a href="https://simonbasle.github.io/2017/10/git-identities-and-ssh/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -759,6 +746,13 @@ and the Git level.</p>
           
           
           
+          <a href="/tags/btrfs" style="font-size:0.8rem">btrfs</a>
+        
+          
+          
+          
+          
+          
           <a href="/tags/config" style="font-size:0.8rem">config</a>
         
           
@@ -767,6 +761,27 @@ and the Git level.</p>
           
           
           <a href="/tags/context" style="font-size:0.8rem">context</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/df" style="font-size:0.8rem">df</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/disk-full" style="font-size:0.8rem">disk-full</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/du" style="font-size:0.8rem">du</a>
         
           
           

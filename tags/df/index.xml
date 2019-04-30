@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Df on Simon&#39;s Blog</title>
+    <link>https://simonbasle.github.io/tags/df/</link>
+    <description>Recent content in Df on Simon&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Simon Baslé</copyright>
+    <lastBuildDate>Tue, 30 Apr 2019 17:38:49 +0200</lastBuildDate>
+    
+	<atom:link href="https://simonbasle.github.io/tags/df/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux, Where Has my Space Gone?</title>
+      <link>https://simonbasle.github.io/2019/04/linux-where-has-my-space-gone/</link>
+      <pubDate>Tue, 30 Apr 2019 17:38:49 +0200</pubDate>
+      
+      <guid>https://simonbasle.github.io/2019/04/linux-where-has-my-space-gone/</guid>
+      <description>&lt;p&gt;Recently, my Raspberry Pi was complaining that the disk was full. Which was strange because I just recently removed a bunch of files from there, yet &lt;code&gt;df -h&lt;/code&gt; was reporting 99% usage. But wait, &lt;code&gt;du -h --summarize&lt;/code&gt; was only reporting a couple gigs used instead of the whole 14Gb&amp;hellip;
+What gives?&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

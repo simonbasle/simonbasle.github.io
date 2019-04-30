@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Simon&#39;s Blog</title>
+    <link>https://simonbasle.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on Simon&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Simon Baslé</copyright>
+    <lastBuildDate>Mon, 02 Oct 2017 12:30:26 +0200</lastBuildDate>
+    
+	<atom:link href="https://simonbasle.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Starting a Blog</title>
+      <link>https://simonbasle.github.io/2017/10/starting-a-blog/</link>
+      <pubDate>Mon, 02 Oct 2017 12:30:26 +0200</pubDate>
+      
+      <guid>https://simonbasle.github.io/2017/10/starting-a-blog/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve finally decided to &lt;strong&gt;start writing a Blog&lt;/strong&gt; 😄&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

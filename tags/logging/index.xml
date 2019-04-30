@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Logging on Simon&#39;s Blog</title>
+    <link>https://simonbasle.github.io/tags/logging/</link>
+    <description>Recent content in Logging on Simon&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Simon Baslé</copyright>
+    <lastBuildDate>Sat, 03 Feb 2018 15:34:30 +0100</lastBuildDate>
+    
+	<atom:link href="https://simonbasle.github.io/tags/logging/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Contextual Logging with Reactor Context and MDC</title>
+      <link>https://simonbasle.github.io/2018/02/contextual-logging-with-reactor-context-and-mdc/</link>
+      <pubDate>Sat, 03 Feb 2018 15:34:30 +0100</pubDate>
+      
+      <guid>https://simonbasle.github.io/2018/02/contextual-logging-with-reactor-context-and-mdc/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;In this post, we&amp;#8217;ll look at how to combine the MDC feature of current logging framework
+with &lt;a href=&#34;https://projectreactor.io/&#34;&gt;Reactor&lt;/a&gt;&#39;s own &lt;code&gt;Context&lt;/code&gt;, in order to make contextualized logging possible within
+a reactive application.&lt;/p&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

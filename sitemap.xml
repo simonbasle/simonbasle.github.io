@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>https://simonbasle.github.io/2019/04/linux-where-has-my-space-gone/</loc>
+      <lastmod>2019-04-30T17:38:49+02:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://simonbasle.github.io/2018/03/reactive-runlength-encoding/</loc>
       <lastmod>2018-03-05T19:00:00+01:00</lastmod>
     </url>
@@ -132,6 +141,16 @@
     
     <url>
     
+      <loc>https://simonbasle.github.io/tags/btrfs/</loc>
+      <lastmod>2019-04-30T17:38:49+02:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://simonbasle.github.io/categories/</loc>
       <priority>0</priority>
     </url>
@@ -153,6 +172,36 @@
     
       <loc>https://simonbasle.github.io/tags/context/</loc>
       <lastmod>2018-02-27T19:30:00+01:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://simonbasle.github.io/tags/df/</loc>
+      <lastmod>2019-04-30T17:38:49+02:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://simonbasle.github.io/tags/disk-full/</loc>
+      <lastmod>2019-04-30T17:38:49+02:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://simonbasle.github.io/tags/du/</loc>
+      <lastmod>2019-04-30T17:38:49+02:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -233,6 +282,16 @@
     
       <loc>https://simonbasle.github.io/tags/java-8/</loc>
       <lastmod>2017-10-26T12:50:00+02:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://simonbasle.github.io/categories/linux/</loc>
+      <lastmod>2019-04-30T17:38:49+02:00</lastmod>
       <priority>0</priority>
     </url>
     
